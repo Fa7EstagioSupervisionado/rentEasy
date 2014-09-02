@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  placa: MyString
+  marca: MyString
+  ano: 1
+  modelo: MyString
+  cor: MyString
+  alugado: false
+  valor_diaria: 1.5
+  garagem_id: 1
+
+two:
+  placa: MyString
+  marca: MyString
+  ano: 1
+  modelo: MyString
+  cor: MyString
+  alugado: false
+  valor_diaria: 1.5
+  garagem_id: 1

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @locadora.cnpj %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @locadora.nome %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @locadora.endereco_id %>
+</p>
+
+<p>
+  <strong>Responsavel:</strong>
+  <%= @locadora.responsavel %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @locadora.email %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @locadora.telefone %>
+</p>
+
+<%= link_to 'Editar', edit_locadora_path(@locadora) %>

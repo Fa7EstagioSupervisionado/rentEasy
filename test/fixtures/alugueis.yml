@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente_id: 1
+  veiculo_id: 1
+  dt_recebimento: 2014-08-26 20:20:53
+  dt_devolucao: 2014-08-26 20:20:53
+  preco_total: 1.5
+
+two:
+  cliente_id: 1
+  veiculo_id: 1
+  dt_recebimento: 2014-08-26 20:20:53
+  dt_devolucao: 2014-08-26 20:20:53
+  preco_total: 1.5

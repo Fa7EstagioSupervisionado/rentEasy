@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  capacidade_passageiros: 1
+  qt_bagabem_pequena: 1
+  qt_bagabem_grande: 1
+
+two:
+  nome: MyString
+  capacidade_passageiros: 1
+  qt_bagabem_pequena: 1
+  qt_bagabem_grande: 1

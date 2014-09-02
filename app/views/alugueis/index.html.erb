@@ -1,0 +1,33 @@
+<h1>Listing alugueis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Veiculo</th>
+      <th>Dt recebimento</th>
+      <th>Dt devolucao</th>
+      <th>Preco total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alugueis.each do |aluguel| %>
+      <tr>
+        <td><%= aluguel.cliente_id %></td>
+        <td><%= aluguel.veiculo_id %></td>
+        <td><%= aluguel.dt_recebimento %></td>
+        <td><%= aluguel.dt_devolucao %></td>
+        <td><%= aluguel.preco_total %></td>
+        <td><%= link_to 'Show', aluguel %></td>
+        <td><%= link_to 'Edit', edit_aluguel_path(aluguel) %></td>
+        <td><%= link_to 'Destroy', aluguel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aluguel', new_aluguel_path %>

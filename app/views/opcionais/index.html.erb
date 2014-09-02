@@ -1,0 +1,31 @@
+<h1>Listing opcionais</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descricao</th>
+      <th>Nome</th>
+      <th>Valor</th>
+      <th>Veiculo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @opcionais.each do |opcional| %>
+      <tr>
+        <td><%= opcional.descricao %></td>
+        <td><%= opcional.nome %></td>
+        <td><%= opcional.valor %></td>
+        <td><%= opcional.veiculo_id %></td>
+        <td><%= link_to 'Show', opcional %></td>
+        <td><%= link_to 'Edit', edit_opcional_path(opcional) %></td>
+        <td><%= link_to 'Destroy', opcional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Opcional', new_opcional_path %>

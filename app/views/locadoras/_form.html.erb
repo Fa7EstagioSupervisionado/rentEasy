@@ -1,0 +1,31 @@
+<%= simple_form_for(@locadora) do |f| %>
+  <% if @locadora.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@locadora.errors.count, "error") %> prohibited this locadora from being saved:</h2>
+
+      <ul>
+      <% @locadora.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+
+    <%= f.input :cnpj, label: 'CNPJ', input_html: {class: 'form-control'} %><br>
+    <%= f.input :nome, label: 'Nome', input_html: {class: 'form-control'} %><br>    
+    <%= f.input :responsavel, label: 'Responsavel', input_html: {class: 'form-control'} %><br>
+    <%= f.input :email, label: 'Email', input_html: {class: 'form-control'} %><br>
+    <%= f.input :telefone, label: 'Telefone', input_html: {class: 'form-control'} %><br>
+
+    <%= f.label "Endereços:" %><br>
+    <%= select_tag "endereco", options_from_collection_for_select(@enderecos, "id", "rua"), id: "simple-example" %>
+    <br><br>
+     
+    <div class="actions">
+    <%= f.button :submit, class: 'btn btn-success' %>
+    </div>   
+  </div>  
+<% end %>

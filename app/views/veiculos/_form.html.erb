@@ -1,0 +1,42 @@
+<%= simple_form_for(@veiculo) do |f| %>
+  <% if @veiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
+
+      <ul>
+      <% @veiculo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+
+    <%= f.input :placa, label: 'Placa', input_html: {class: 'form-control'} %><br>
+    <%= f.input :marca, label: 'Marca', input_html: {class: 'form-control'} %><br>
+    <%= f.input :ano, label: 'Ano', input_html: {class: 'form-control'} %><br>
+    <%= f.input :modelo, label: 'Modelo', input_html: {class: 'form-control'} %><br>
+    <%= f.input :cor, label: 'Cor', input_html: {class: 'form-control'} %><br>
+    <%= f.input :valor_diaria, label: 'Valor Diaria', input_html: {class: 'form-control'} %><br>
+
+    <%= f.label "Garabem:" %><br>
+    <%= select_tag "garagem     ", options_from_collection_for_select(@garagens, "id", "nome"), id: "simple-example" %>
+    <br><br>
+
+    <%= f.label "Categoria:" %><br>
+    <%= select_tag "categoria", options_from_collection_for_select(@categorias, "id", "nome"), id: "simple-example" %>
+    <br><br>
+
+    <%= f.label :alugado %><br>
+
+    <%= f.check_box :alugado %>
+    
+  </div>
+  <div class="actions">
+    <%= f.button :submit, class: 'btn btn-success' %>
+  </div>
+ 
+ <br>
+<% end %>
+

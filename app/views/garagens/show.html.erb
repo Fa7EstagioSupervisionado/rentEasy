@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @garagem.endereco_id %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @garagem.nome %>
+</p>
+
+<%= link_to 'Edit', edit_garagem_path(@garagem) %> |
+<%= link_to 'Back', garagens_path %>

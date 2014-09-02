@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @opcional.descricao %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @opcional.nome %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @opcional.valor %>
+</p>
+
+<p>
+  <strong>Veiculo:</strong>
+  <%= @opcional.veiculo_id %>
+</p>
+
+<%= link_to 'Edit', edit_opcional_path(@opcional) %> |
+<%= link_to 'Back', opcionais_path %>

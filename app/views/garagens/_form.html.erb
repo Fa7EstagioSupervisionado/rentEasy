@@ -1,0 +1,25 @@
+<%= form_for(@garagem) do |f| %>
+  <% if @garagem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@garagem.errors.count, "error") %> prohibited this garagem from being saved:</h2>
+
+      <ul>
+      <% @garagem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :endereco_id %><br>
+    <%= f.collection_select(:endereco_id, @enderecos, :id, :rua, :prompt => true, :class => 'form-control' ) %>
+  </div>
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
