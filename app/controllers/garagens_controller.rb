@@ -1,6 +1,5 @@
 class GaragensController < ApplicationController
   before_action :set_garagem, only: [:show, :edit, :update, :destroy]
-
   # GET /garagens
   # GET /garagens.json
   def index
@@ -11,12 +10,17 @@ class GaragensController < ApplicationController
   # GET /garagens/1
   # GET /garagens/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /garagens/new
   def new
     prepara_form
     @garagem = Garagem.new
+    @garagem.endereco = Endereco.new
   end
 
   # GET /garagens/1/edit
@@ -29,6 +33,7 @@ class GaragensController < ApplicationController
   def create
     prepara_form
     @garagem = Garagem.new(garagem_params)
+    @garagem.endereco = Endereco.new(endereco_params)
 
     respond_to do |format|
       if @garagem.save
@@ -67,17 +72,22 @@ class GaragensController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def prepara_form
-      @enderecos = Endereco.order :rua
-    end
 
-    def set_garagem
-      @garagem = Garagem.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def prepara_form
+    @enderecos = Endereco.order :rua
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def garagem_params
-      params.require(:garagem).permit(:endereco_id, :nome)
-    end
+  def set_garagem
+    @garagem = Garagem.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def garagem_params
+    params.require(:garagem).permit(:endereco_id, :nome)
+  end
+
+  def endereco_params
+    params.require(:endereco).permit(:cep, :rua, :bairro, :numero, :cidade, :estado)
+  end
 end
