@@ -26,6 +26,11 @@
 </p>
 
 <p>
+  <strong>Locadora:</strong>
+  <%= @veiculo.locadora.nome %>
+</p>
+
+<p>
   <strong>Alugado:</strong>
   <%= @veiculo.alugado %>
 </p>
@@ -47,3 +52,4 @@
 
 
 <%= link_to 'Editar', edit_veiculo_path(@veiculo), class: "btn btn-primary btn-sm" %>
+<%= link_to 'Voltar', veiculos_path(@veiculo), class: "btn btn-primary btn-sm" %>
