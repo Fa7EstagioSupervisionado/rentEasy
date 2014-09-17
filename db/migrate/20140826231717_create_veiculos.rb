@@ -9,6 +9,7 @@ class CreateVeiculos < ActiveRecord::Migration
       t.boolean :alugado
       t.float :valor_diaria
       t.integer :garagem_id
+      t.integer :categoria_id
 
       t.timestamps
     end

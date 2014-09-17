@@ -1,12 +1,15 @@
-<h1>Listing categorias</h1>
+<h1>Categorias</h1>
 
-<table>
+<%= link_to 'Cadastrar Categoria', new_categoria_path, class: "btn btn-default pull-right" %>
+<br><br>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nome</th>
       <th>Capacidade passageiros</th>
-      <th>Qt bagabem pequena</th>
-      <th>Qt bagabem grande</th>
+      <th>Quantidade de bagabem pequena</th>
+      <th>Quantidade de bagabem grande</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +21,14 @@
         <td><%= categoria.capacidade_passageiros %></td>
         <td><%= categoria.qt_bagabem_pequena %></td>
         <td><%= categoria.qt_bagabem_grande %></td>
-        <td><%= link_to 'Show', categoria %></td>
-        <td><%= link_to 'Edit', edit_categoria_path(categoria) %></td>
-        <td><%= link_to 'Destroy', categoria, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td>
+          <%= link_to '', categoria,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal' %>
+        </td>
+
+        <td><%= link_to '', edit_categoria_path(categoria), class: "glyphicon glyphicon-edit" %></td>
+
+        <td><%= link_to '', categoria, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove-circle" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Categoria', new_categoria_path %>
+
