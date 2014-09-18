@@ -75,6 +75,7 @@ class VeiculosController < ApplicationController
     def prepara_form
       @garagens = Garagem.order :nome
       @categorias = Categoria.order :nome
+      @locadoras = Locadora.order :nome
     end
 
     def set_veiculo
@@ -83,6 +84,6 @@ class VeiculosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def veiculo_params
-      params.require(:veiculo).permit(:placa, :marca, :ano, :modelo, :cor, :alugado, :valor_diaria, :garagem_id, :categoria_id)
+      params.require(:veiculo).permit(:placa, :marca, :ano, :modelo, :cor, :alugado, :valor_diaria, :garagem_id, :categoria_id, :locadora_id)
     end
 end

@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20140827013853) do
     t.boolean  "alugado"
     t.float    "valor_diaria"
     t.integer  "garagem_id"
+    t.integer  "locadora_id"
     t.integer  "categoria_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -108,5 +109,6 @@ ActiveRecord::Schema.define(version: 20140827013853) do
 
   add_index "veiculos", ["categoria_id"], name: "index_veiculos_on_categoria_id"
   add_index "veiculos", ["garagem_id"], name: "index_veiculos_on_garagem_id"
+  add_index "veiculos", ["locadora_id"], name: "index_veiculos_on_locadora_id"
 
 end
