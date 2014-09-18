@@ -37,7 +37,7 @@ class GaragensController < ApplicationController
 
     respond_to do |format|
       if @garagem.save
-        format.html { redirect_to @garagem, notice: 'Garagem was successfully created.' }
+        format.html { redirect_to @garagem, notice: 'Garagem foi salva com sucesso' }
         format.json { render :show, status: :created, location: @garagem }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class GaragensController < ApplicationController
     prepara_form
     respond_to do |format|
       if @garagem.update(garagem_params)
-        format.html { redirect_to @garagem, notice: 'Garagem was successfully updated.' }
+        format.html { redirect_to @garagem, notice: 'Garagem foi editada com sucesso' }
         format.json { render :show, status: :ok, location: @garagem }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class GaragensController < ApplicationController
   def destroy
     @garagem.destroy
     respond_to do |format|
-      format.html { redirect_to garagens_url, notice: 'Garagem was successfully destroyed.' }
+      format.html { redirect_to garagens_url, notice: 'Garagem foi excluída com sucesso' }
       format.json { head :no_content }
     end
   end

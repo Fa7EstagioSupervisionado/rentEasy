@@ -1,4 +1,5 @@
 <%= simple_form_for(@garagem) do |f| %>
+<%= simple_form_for(@garagem.endereco) do |e| %>
 <% if @garagem.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@garagem.errors.count, "error") %> prohibited this garagem from being saved:</h2>
@@ -15,8 +16,6 @@
 
 <div class="form-group">
 
-	<%= simple_form_for(@garagem.endereco) do |e| %>
-
 	<% if @garagem.endereco.errors.any? %>
 	<div id="error_explanation">
 		<h2><%= pluralize(@garagem.endereco.errors.count, "error") %> prohibited this garagem from being saved:</h2>
@@ -32,22 +31,23 @@
 	<% end %>
 
 	<div class="form-group">
-		
-		<%= e.input :cep, label: 'CEP', input_html: {class: 'form-control'} %>
+
+		<%= e.input :cep,label: 'CEP',input_html: {class: 'form-control',:type =>'number'} %>
 		<%= e.input :rua, label: 'Rua', input_html: {class: 'form-control'} %>
 		<%= e.input :bairro, label: 'Bairro', input_html: {class: 'form-control'} %>
 		<%= e.input :numero, label: 'Numero', input_html: {class: 'form-control'} %>
 		<%= e.input :cidade, label: 'Cidade', input_html: {class: 'form-control'} %>
 		<%= e.input :estado, label: 'Estado', input_html: {class: 'form-control'} %>
-		
+
 	</div>
 
 	<%= f.input :nome, label: 'Nome Garagem', input_html: {class: 'form-control'} %>
-	
+
 	<br>
-		
+
 	<div class="actions">
 		<%= f.button :submit,'Salvar', class: 'btn btn-success' %>
+		<%= link_to 'Voltar', garagens_path,  class: "btn btn-default" %>
 	</div>
 	<% end %>
 

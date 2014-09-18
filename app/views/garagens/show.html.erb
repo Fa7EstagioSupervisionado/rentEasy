@@ -1,14 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Endereco:</strong>
-  <%= @garagem.endereco_id %>
-</p>
-
-<p>
   <strong>Nome:</strong>
   <%= @garagem.nome %>
 </p>
 
+<p>
+  <strong>CEP:</strong>
+  <%= @garagem.endereco.cep %>
+</p>
+
+<p>
+  <strong>Logradouro:</strong>
+  <%= @garagem.endereco.rua %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @garagem.endereco.bairro %>
+</p>
+
+<p>
+  <strong>Número:</strong>
+  <%= @garagem.endereco.numero %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @garagem.endereco.cidade %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @garagem.endereco.estado %>
+</p>
+
 <%= link_to 'Editar', edit_garagem_path(@garagem), class: "btn btn-primary btn-sm" %>
+<%= link_to 'Voltar', garagens_path, class: "btn btn-primary btn-sm"  %>
+
 

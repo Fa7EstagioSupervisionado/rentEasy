@@ -3,4 +3,7 @@ class Garagem < ActiveRecord::Base
 	has_many :veiculos
 
 	validates_associated :endereco
+	
+	validates_presence_of :nome
+	
 end
