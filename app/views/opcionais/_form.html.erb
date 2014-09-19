@@ -1,4 +1,4 @@
-<%= form_for(@opcional) do |f| %>
+<%= simple_form_for(@opcional) do |f| %>
   <% if @opcional.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@opcional.errors.count, "error") %> prohibited this opcional from being saved:</h2>
@@ -11,23 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :descricao %><br>
-    <%= f.text_field :descricao %>
-  </div>
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :valor %><br>
-    <%= f.text_field :valor %>
-  </div>
-  <div class="field">
-    <%= f.label :veiculo_id %><br>
-    <%= f.number_field :veiculo_id %>
+  <div class="form-group">
+
+    <%= f.input :descricao, label: 'Descricao', input_html: {class: 'form-control'} %><br>
+    <%= f.input :nome, label: 'Nome', input_html: {class: 'form-control'} %><br>
+    <%= f.input :valor, label: 'Valor', input_html: {class: 'form-control'} %><br>
+    
+    <!-- Veiculo não deve ser relacionado na criação de um opcional, somente na associação -->
+    <!-- <div class="field">
+      <%= f.label :veiculo_id %><br>
+      <%= f.collection_select(:veiculo_id, @veiculos, :id, :modelo, :prompt => true, :class => 'form-control' ) %>
+    </div> -->
+
+    
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit, class: 'btn btn-success' %>
   </div>
-<% end %>
+ 
+ <br>
+ <% end %>
+
+
+

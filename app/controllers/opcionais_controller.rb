@@ -4,26 +4,34 @@ class OpcionaisController < ApplicationController
   # GET /opcionais
   # GET /opcionais.json
   def index
+    prepara_form
     @opcionais = Opcional.all
   end
 
   # GET /opcionais/1
   # GET /opcionais/1.json
   def show
+     respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /opcionais/new
   def new
+    prepara_form
     @opcional = Opcional.new
   end
 
   # GET /opcionais/1/edit
   def edit
+    prepara_form
   end
 
   # POST /opcionais
   # POST /opcionais.json
   def create
+    prepara_form
     @opcional = Opcional.new(opcional_params)
 
     respond_to do |format|
@@ -40,6 +48,7 @@ class OpcionaisController < ApplicationController
   # PATCH/PUT /opcionais/1
   # PATCH/PUT /opcionais/1.json
   def update
+    prepara_form
     respond_to do |format|
       if @opcional.update(opcional_params)
         format.html { redirect_to @opcional, notice: 'Opcional was successfully updated.' }
@@ -63,6 +72,10 @@ class OpcionaisController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def prepara_form
+      @veiculos = Veiculo.order :modelo
+    end
+
     def set_opcional
       @opcional = Opcional.find(params[:id])
     end
