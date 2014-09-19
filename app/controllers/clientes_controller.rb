@@ -1,34 +1,42 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
-
   # GET /clientes
   # GET /clientes.json
   def index
+    prepara_form
     @clientes = Cliente.all
   end
 
   # GET /clientes/1
   # GET /clientes/1.json
   def show
+     respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /clientes/new
   def new
+    prepara_form
     @cliente = Cliente.new
+    @cliente.endereco = Endereco.new
   end
 
   # GET /clientes/1/edit
   def edit
+    prepara_form
   end
 
   # POST /clientes
   # POST /clientes.json
   def create
     @cliente = Cliente.new(cliente_params)
-
+    @cliente.endereco = Endereco.new(endereco_params)
+    
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to @cliente, notice: 'Cliente was successfully created.' }
+        format.html { redirect_to @cliente, notice: 'Cliente salvo com sucesso.' }
         format.json { render :show, status: :created, location: @cliente }
       else
         format.html { render :new }
@@ -42,7 +50,7 @@ class ClientesController < ApplicationController
   def update
     respond_to do |format|
       if @cliente.update(cliente_params)
-        format.html { redirect_to @cliente, notice: 'Cliente was successfully updated.' }
+        format.html { redirect_to @cliente, notice: 'Cliente editado com sucesso.' }
         format.json { render :show, status: :ok, location: @cliente }
       else
         format.html { render :edit }
@@ -56,19 +64,29 @@ class ClientesController < ApplicationController
   def destroy
     @cliente.destroy
     respond_to do |format|
-      format.html { redirect_to clientes_url, notice: 'Cliente was successfully destroyed.' }
+      format.html { redirect_to clientes_url, notice: 'Cliente excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cliente
-      @cliente = Cliente.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cliente_params
-      params.require(:cliente).permit(:nome, :cpf, :dt_nascimento, :sexo, :email, :endereco_id, :telefone, :nr_habilitacao)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+   def set_cliente
+    @cliente = Cliente.find(params[:id])
+  end
+
+  def prepara_form
+    @enderecos = Endereco.order :rua
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cliente_params
+    params.require(:cliente).permit(:nome, :cpf, :dt_nascimento, :sexo, :email, :endereco_id, :telefone, :nr_habilitacao)
+  end
+
+ def endereco_params
+    params.require(:endereco).permit(:cep, :rua, :bairro, :numero, :cidade, :estado)
+  end
+  
 end
