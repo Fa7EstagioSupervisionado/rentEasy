@@ -1,6 +1,8 @@
-<h1>Listing alugueis</h1>
+<h1>Alugueis</h1>
+<%= link_to 'Novo Aluguel', new_aluguel_path, class: "btn btn-default pull-right" %>
+<br><br>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Cliente</th>
@@ -15,19 +17,24 @@
   <tbody>
     <% @alugueis.each do |aluguel| %>
       <tr>
-        <td><%= aluguel.cliente_id %></td>
-        <td><%= aluguel.veiculo_id %></td>
+        <td><%= aluguel.cliente.nome %></td>
+        <td><%= aluguel.veiculo.modelo %></td>
         <td><%= aluguel.dt_recebimento %></td>
         <td><%= aluguel.dt_devolucao %></td>
         <td><%= aluguel.preco_total %></td>
-        <td><%= link_to 'Show', aluguel %></td>
-        <td><%= link_to 'Edit', edit_aluguel_path(aluguel) %></td>
-        <td><%= link_to 'Destroy', aluguel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to '', aluguel, remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal'  %>
+        </td>
+        <td>
+          <%= link_to '', edit_aluguel_path(aluguel), class: "glyphicon glyphicon-edit" %>
+        </td>
+        <td>
+          <%= link_to '', aluguel, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove-circle" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
-<%= link_to 'New Aluguel', new_aluguel_path %>
+

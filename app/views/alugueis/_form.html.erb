@@ -1,4 +1,4 @@
-<%= form_for(@aluguel) do |f| %>
+<%= simple_form_for(@aluguel) do |f| %>
   <% if @aluguel.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@aluguel.errors.count, "error") %> prohibited this aluguel from being saved:</h2>
@@ -11,27 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :cliente_id %><br>
-    <%= f.number_field :cliente_id %>
-  </div>
-  <div class="field">
-    <%= f.label :veiculo_id %><br>
-    <%= f.number_field :veiculo_id %>
-  </div>
-  <div class="field">
-    <%= f.label :dt_recebimento %><br>
-    <%= f.datetime_select :dt_recebimento %>
-  </div>
-  <div class="field">
-    <%= f.label :dt_devolucao %><br>
-    <%= f.datetime_select :dt_devolucao %>
-  </div>
-  <div class="field">
-    <%= f.label :preco_total %><br>
-    <%= f.text_field :preco_total %>
+  <div class="form-group">
+
+    <head>
+
+    <div class="field">
+      <%= f.label :cliente_id %><br>
+      <%= f.collection_select(:cliente_id, @clientes, :id, :nome, :prompt => true, id: "simple_example" ) %>
+    </div>
+
+    <div class="field">      
+      <%= f.label :veiculo_id %><br>
+      <%= f.collection_select(:veiculo_id, @veiculos, :id, :marca, :prompt => true, :class => 'form-control' ) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :dt_recebimento %><br>
+      <%= f.datetime_select :dt_recebimento %>
+    </div>
+
+    <div class="field">
+      <%= f.label :dt_devolucao %><br>
+      <%= f.datetime_select :dt_devolucao %>
+    </div>
+
+    <div class="field">
+      <%= f.label :preco_total %><br>
+      <%= f.text_field :preco_total %>
+    </div>
+    
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit, class: 'btn btn-success' %>
   </div>
+ 
+ <br>
 <% end %>

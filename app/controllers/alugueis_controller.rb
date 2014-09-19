@@ -4,26 +4,34 @@ class AlugueisController < ApplicationController
   # GET /alugueis
   # GET /alugueis.json
   def index
+    prepara_form
     @alugueis = Aluguel.all
   end
 
   # GET /alugueis/1
   # GET /alugueis/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /alugueis/new
   def new
+    prepara_form
     @aluguel = Aluguel.new
   end
 
   # GET /alugueis/1/edit
   def edit
+    prepara_form
   end
 
   # POST /alugueis
   # POST /alugueis.json
   def create
+    prepara_form
     @aluguel = Aluguel.new(aluguel_params)
 
     respond_to do |format|
@@ -40,6 +48,7 @@ class AlugueisController < ApplicationController
   # PATCH/PUT /alugueis/1
   # PATCH/PUT /alugueis/1.json
   def update
+    prepara_form
     respond_to do |format|
       if @aluguel.update(aluguel_params)
         format.html { redirect_to @aluguel, notice: 'Aluguel was successfully updated.' }
@@ -63,6 +72,11 @@ class AlugueisController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def prepara_form
+      @clientes = Cliente.order :nome
+      @veiculos = Veiculo.order :modelo
+    end
+
     def set_aluguel
       @aluguel = Aluguel.find(params[:id])
     end
