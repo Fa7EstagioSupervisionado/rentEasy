@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require_tree .
 //= require select2
 //= require select2.min
 //= require bootstrap.min
-//= require_tree .
 
 $(document).ready(function() {
 	$('select#simple-example').select2();
