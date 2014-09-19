@@ -21,6 +21,7 @@ class LocadorasController < ApplicationController
   def new
     prepara_form
     @locadora = Locadora.new
+    @locadora.endereco = Endereco.new
   end
 
   # GET /locadoras/1/edit
@@ -33,10 +34,11 @@ class LocadorasController < ApplicationController
   def create
     prepara_form
     @locadora = Locadora.new(locadora_params)
+    @locadora.endereco = Endereco.new(endereco_params)
 
     respond_to do |format|
       if @locadora.save
-        format.html { redirect_to @locadora, notice: 'Locadora was successfully created.' }
+        format.html { redirect_to @locadora, notice: 'Locadora salva com sucesso.' }
         format.json { render :show, status: :created, location: @locadora }
       else
         format.html { render :new }
@@ -51,7 +53,7 @@ class LocadorasController < ApplicationController
     prepara_form
     respond_to do |format|
       if @locadora.update(locadora_params)
-        format.html { redirect_to @locadora, notice: 'Locadora was successfully updated.' }
+        format.html { redirect_to @locadora, notice: 'Locadora editada com sucesso.' }
         format.json { render :show, status: :ok, location: @locadora }
       else
         format.html { render :edit }
@@ -65,7 +67,7 @@ class LocadorasController < ApplicationController
   def destroy
     @locadora.destroy
     respond_to do |format|
-      format.html { redirect_to locadoras_url, notice: 'Locadora was successfully destroyed.' }
+      format.html { redirect_to locadoras_url, notice: 'Locadora excluída com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -83,5 +85,9 @@ class LocadorasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def locadora_params
       params.require(:locadora).permit(:cnpj, :nome, :endereco_id, :responsavel, :email, :telefone)
+    end
+    
+    def endereco_params
+      params.require(:endereco).permit(:cep, :rua, :bairro, :numero, :cidade, :estado)
     end
 end

@@ -11,12 +11,7 @@
 </p>
 
 <p>
-  <strong>Endereco:</strong>
-  <%= @locadora.endereco_id %>
-</p>
-
-<p>
-  <strong>Responsavel:</strong>
+  <strong>Responsável:</strong>
   <%= @locadora.responsavel %>
 </p>
 
@@ -30,4 +25,35 @@
   <%= @locadora.telefone %>
 </p>
 
-<%= link_to 'Editar', edit_locadora_path(@locadora) %>
+<p>
+  <strong>CEP:</strong>
+  <%= @locadora.endereco.cep %>
+</p>
+
+<p>
+  <strong>Logradouro:</strong>
+  <%= @locadora.endereco.rua %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @locadora.endereco.bairro %>
+</p>
+
+<p>
+  <strong>Número:</strong>
+  <%= @locadora.endereco.numero %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @locadora.endereco.cidade %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @locadora.endereco.estado %>
+</p>
+
+<%= link_to 'Editar', edit_locadora_path(@locadora),class: "btn btn-primary btn-sm"  %>
+<%= link_to 'Voltar', locadoras_path, class: "btn btn-primary btn-sm"  %>
