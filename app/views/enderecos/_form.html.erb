@@ -1,4 +1,4 @@
-<%= form_for(@endereco) do |f| %>
+<%= simple_form_for(@endereco) do |f| %>
   <% if @endereco.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@endereco.errors.count, "error") %> prohibited this endereco from being saved:</h2>
@@ -11,31 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :cep %><br>
-    <%= f.number_field :cep %>
-  </div>
-  <div class="field">
-    <%= f.label :rua %><br>
-    <%= f.text_field :rua %>
-  </div>
-  <div class="field">
-    <%= f.label :bairro %><br>
-    <%= f.text_field :bairro %>
-  </div>
-  <div class="field">
-    <%= f.label :numero %><br>
-    <%= f.number_field :numero %>
-  </div>
-  <div class="field">
-    <%= f.label :cidade %><br>
-    <%= f.text_field :cidade %>
-  </div>
-  <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.text_field :estado %>
+  <div class="form-group">
+
+    <%= f.input :cep, label: 'CEP', input_html: {class: 'form-control'} %><br>
+    <%= f.input :rua, label: 'Rua', input_html: {class: 'form-control'} %><br>
+    <%= f.input :bairro, label: 'Bairro', input_html: {class: 'form-control'} %><br>
+    <%= f.input :numero, label: 'Numero', input_html: {class: 'form-control'} %><br>
+    <%= f.input :cidade, label: 'Cidade', input_html: {class: 'form-control'} %><br>
+    <%= f.input :estado, label: 'Estado', input_html: {class: 'form-control'} %><br>
+
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit,"Salvar", class: 'btn btn-success' %>
   </div>
+ 
+ <br>
 <% end %>

@@ -17,12 +17,12 @@
 
     <div class="field">
       <%= f.label :cliente_id %><br>
-      <%= f.collection_select(:cliente_id, @clientes, :id, :nome, :prompt => true, id: "simple_example" ) %>
+      <%= f.collection_select(:cliente_id, @clientes, :id, :nome, :prompt => true, id: "simple-example" ) %>
     </div>
 
     <div class="field">      
       <%= f.label :veiculo_id %><br>
-      <%= f.collection_select(:veiculo_id, @veiculos, :id, :marca, :prompt => true, :class => 'form-control' ) %>
+      <%= f.collection_select(:veiculo_id, @veiculos, :id, :modelo, :prompt => true, :class => 'form-control' ) %>
     </div>
 
     <div class="field">
@@ -33,11 +33,10 @@
     <div class="field">
       <%= f.label :dt_devolucao %><br>
       <%= f.datetime_select :dt_devolucao %>
-    </div>
+    </div><br>
 
     <div class="field">
-      <%= f.label :preco_total %><br>
-      <%= f.text_field :preco_total %>
+      <%= f.input :preco_total, label: 'Preço Total', input_html: {class: 'form-control'} %><br>
     </div>
     
   </div>
@@ -47,3 +46,5 @@
  
  <br>
 <% end %>
+
+

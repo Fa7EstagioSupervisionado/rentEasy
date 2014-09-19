@@ -1,0 +1,3 @@
+$('#myModal .modal-body').html("")
+$('#myModal h4.modal-title').html('Detalhes do Opcional: ');
+$('#myModal .modal-body').html('#{escape_javascript(render file: 'opcionais/show.html.erb', opcional: @opcional)}');
