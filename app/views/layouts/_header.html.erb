@@ -1,50 +1,56 @@
-<div role="navigation" class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>            
-          </button>
-          <a><%= link_to "RentEasy", root_path, class: "navbar-brand" %></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <form role="form" class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password">
-            </div>
-            <button class="btn btn-default" type="submit">Sign in</button>
-          </form>
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">Veiculos<span class="caret"></span></a>
-              <ul role="menu" class="dropdown-menu">
-                <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Por Categoria</li>
-                <li><a href="#">Carros</a></li>
-                <li><a href="#">Motos</a></li>
-                <li><a href="#">4x4</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Adicionais</li>
-                <li><%= link_to "Opcionais",    opcionais_path %></li>
-              </ul>
-            </li>
-            <li><%= link_to "Locadoras",    locadoras_path %></li>
-            <li><%= link_to "Clientes",    clientes_path %></li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">Localizações<span class="caret"></span></a>
-              <ul role="menu" class="dropdown-menu">
-                <li><%= link_to "Endereços",    enderecos_path %></li>
-                <li><%= link_to "Garagens",    garagens_path %></li>              
-              </ul>
-            </li>            
-            <li><%= link_to "Categorias",    categorias_path %></li>  
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+<div class="titulo">
+  <br>  
+  <%= image_tag("url.png", :alt => "rss feed")%> 
+</div>
+<br>
+<div role="navigation" class="navbar navbar-default ">
+  <div class="container">
+    <div class="navbar-header">
+      <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>            
+      </button>
+      <a><%= link_to "RentEasy", home_path, class: "navbar-brand" %></a>
     </div>
+    <div class="navbar-collapse collapse">
+      <p class="navbar-text pull-right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-xs btn-default' %> 
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-xs btn-default'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-xs btn-default'  %> 
+          <%= link_to "Login", new_user_session_path, :class => 'btn btn-xs btn-default'  %>
+        <% end %>
+      </p>   
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Veiculos<span class="caret"></span></a>
+          <ul role="menu" class="dropdown-menu">
+            <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Por Categoria</li>
+            <li><a href="#">Carros</a></li>
+            <li><a href="#">Motos</a></li>
+            <li><a href="#">4x4</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Adicionais</li>
+            <li><%= link_to "Opcionais",    opcionais_path %></li>
+          </ul>
+        </li>
+        <li><%= link_to "Locadoras",    locadoras_path %></li>
+        <li><%= link_to "Clientes",    clientes_path %></li>
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Localizações<span class="caret"></span></a>
+          <ul role="menu" class="dropdown-menu">
+            <li><%= link_to "Endereços",    enderecos_path %></li>
+            <li><%= link_to "Garagens",    garagens_path %></li>              
+          </ul>
+        </li>            
+        <li><%= link_to "Categorias",    categorias_path %></li>  
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>

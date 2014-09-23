@@ -7,11 +7,13 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>       
-    <div class="container">
+  <body>          
+    <div class="container">    
     <%= render 'layouts/header' %>
-      <%= yield %>
-      <br><br>
+    <br>
+    <%= render partial: "layouts/flash_messages", flash: flash %> 
+    <%= yield %>
+    <br><br>
     <%= render 'layouts/footer' %>
     </div>
   </body>
@@ -28,7 +30,6 @@
           ...
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
         </div>
       </div>
     </div>

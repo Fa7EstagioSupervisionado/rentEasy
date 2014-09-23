@@ -3,27 +3,26 @@
 
 <body>
   <div class="jumbotron">
-    <h1>RentEasy</h1><br>
     <p>Aqui ficará formulario de pesquisa principal</p><br>
     <%= link_to 'Alugar Veiculo', new_aluguel_path, class: "btn btn-primary btn-lg" %>    
   </div>
   <div class="row">
     <div class="col-lg-4">
-      <img style="width: 140px; height: 140px;" alt="Generic placeholder image" src="http://3.bp.blogspot.com/_uoqOXMyDFZI/TUNnYu1wcnI/AAAAAAAAAJg/6x4dOM6Hdj0/s1600/veilside.jpg" class="img-circle">
+      <%= image_tag("rx7.jpg", :style => "width: 140px; height: 140px;", :class => "img-circle", :alt => "rss feed") %>      
       <h2>Veiculo</h2>
       <p>Marca: Mazda</p>
       <p>Modelo: RX-7</p>
       <p><a role="button" href="#" class="btn btn-default">Mais detalhes »</a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4">
-      <img style="width: 140px; height: 140px;" alt="Generic placeholder image" src="http://3.bp.blogspot.com/-bCQ1sa0_C3Y/TWBy_3u5mOI/AAAAAAAALOo/ocVHDVOV9bI/s1600/Consumo-Uno-Mille-Fire-Economy-2011-frente-4Portas.jpg" class="img-circle">
+      <%= image_tag("mille.jpg", :style => "width: 140px; height: 140px;", :class => "img-circle", :alt => "rss feed") %>      
       <h2>Veiculo</h2>
       <p>Marca: Fiat</p>
       <p>Modelo: UNO</p>
       <p><a role="button" href="#" class="btn btn-default">Mais detalhes »</a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4">
-      <img style="width: 140px; height: 140px;" alt="Generic placeholder image" src="http://img0.icarros.com/dbimg/galeriaimgmodelo/10/21561_1" class="img-circle">
+      <%= image_tag("p208.jpg", :style => "width: 140px; height: 140px;", :class => "img-circle", :alt => "rss feed") %>      
       <h2>Veiculo</h2>
       <p>Marca: Pegeout</p>
       <p>Modelo: 208</p>

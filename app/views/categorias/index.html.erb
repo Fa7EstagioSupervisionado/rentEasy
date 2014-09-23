@@ -8,8 +8,8 @@
     <tr>
       <th>Nome</th>
       <th>Capacidade passageiros</th>
-      <th>Quantidade de bagabem pequena</th>
-      <th>Quantidade de bagabem grande</th>
+      <th>Quantidade de bagagem pequena</th>
+      <th>Quantidade de bagagem grande</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,8 +19,8 @@
       <tr>
         <td><%= categoria.nome %></td>
         <td><%= categoria.capacidade_passageiros %></td>
-        <td><%= categoria.qt_bagabem_pequena %></td>
-        <td><%= categoria.qt_bagabem_grande %></td>
+        <td><%= categoria.qt_bagagem_pequena %></td>
+        <td><%= categoria.qt_bagagem_grande %></td>
 
         <td>
           <%= link_to '', categoria,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal' %>

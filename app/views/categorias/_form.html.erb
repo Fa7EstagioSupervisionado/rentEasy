@@ -15,12 +15,13 @@
 
     <%= f.input :nome, label: 'Nome', input_html: {class: 'form-control'} %><br>
     <%= f.input :capacidade_passageiros, label: 'Capacidade de Passageiros ', input_html: {class: 'form-control'} %><br>
-    <%= f.input :qt_bagabem_pequena, label: 'Quantidade de Bagagem Pequena ', input_html: {class: 'form-control'} %><br>
-    <%= f.input :qt_bagabem_grande, label: 'Quantidade de Bagagem Grande ', input_html: {class: 'form-control'} %><br>
+    <%= f.input :qt_bagagem_pequena, label: 'Quantidade de Bagagem Pequena ', input_html: {class: 'form-control'} %><br>
+    <%= f.input :qt_bagagem_grande, label: 'Quantidade de Bagagem Grande ', input_html: {class: 'form-control'} %><br>
 
     </div>
   <div class="actions">
     <%= f.button :submit,"Salvar", class: 'btn btn-success' %>
+    <%= link_to 'Voltar', categorias_path, class: "btn btn-default" %>
   </div>
 
   <br> 

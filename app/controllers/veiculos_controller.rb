@@ -5,7 +5,9 @@ class VeiculosController < ApplicationController
   # GET /veiculos.json
   def index
     prepara_form
-    @veiculos = Veiculo.all
+    @veiculos = Veiculo.all#.page(params['page']).per(3) 
+    @motos = Veiculo.order("categoria_id").where(:categoria_id => 2)
+    @carros = Veiculo.order("categoria_id").where(:categoria_id => 1)
   end
 
   # GET /veiculos/1
