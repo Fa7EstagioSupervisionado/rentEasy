@@ -1,50 +1,50 @@
-<%= simple_form_for(@veiculo) do |f| %>
-  <% if @veiculo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
+      <%= simple_form_for(@veiculo) do |f| %>
+        <% if @veiculo.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
 
-      <ul>
-      <% @veiculo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% @veiculo.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+
+          <%= f.input :placa, label: 'Placa', input_html: {class: 'form-control'} %><br>
+          <%= f.input :marca, label: 'Marca', input_html: {class: 'form-control'} %><br>
+          <%= f.input :ano, label: 'Ano', input_html: {class: 'form-control'} %><br>
+          <%= f.input :modelo, label: 'Modelo', input_html: {class: 'form-control'} %><br>
+          <%= f.input :cor, label: 'Cor', input_html: {class: 'form-control'} %><br>
+          <%= f.input :valor_diaria, label: 'Valor Diaria', input_html: {class: 'form-control'} %><br>
+
+          <div class="field">
+            <%= f.label :locadora_id %><br>
+            <%= f.collection_select(:locadora_id, @locadoras, :id, :nome, :prompt => true, :class => 'form-control' ) %>
+          </div>
+
+          <div class="field">
+            <%= f.label :garagem_id %><br>
+            <%= f.collection_select(:garagem_id, @garagens, :id, :nome, :prompt => true, :class => 'form-control' ) %>
+          </div>
+
+          <div class="field">
+            <%= f.label :categoria_id %><br>
+            <%= f.collection_select(:categoria_id, @categorias, :id, :nome, :prompt => true, :class => 'form-control' ) %>
+          </div>
+
+          <%= f.label :alugado %><br>
+
+          <%= f.check_box :alugado %>
+          
+        </div>
+        <div class="actions">
+          <%= f.button :submit,"Salvar", class: 'btn btn-success' %>
+          <%= link_to 'Voltar', veiculos_path, class: "btn btn-default"  %>
+        </div>
+       
+       <br>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-
-    <%= f.input :placa, label: 'Placa', input_html: {class: 'form-control'} %><br>
-    <%= f.input :marca, label: 'Marca', input_html: {class: 'form-control'} %><br>
-    <%= f.input :ano, label: 'Ano', input_html: {class: 'form-control'} %><br>
-    <%= f.input :modelo, label: 'Modelo', input_html: {class: 'form-control'} %><br>
-    <%= f.input :cor, label: 'Cor', input_html: {class: 'form-control'} %><br>
-    <%= f.input :valor_diaria, label: 'Valor Diaria', input_html: {class: 'form-control'} %><br>
-
-    <div class="field">
-      <%= f.label :locadora_id %><br>
-      <%= f.collection_select(:locadora_id, @locadoras, :id, :nome, :prompt => true, :class => 'form-control' ) %>
-    </div>
-
-    <div class="field">
-      <%= f.label :garagem_id %><br>
-      <%= f.collection_select(:garagem_id, @garagens, :id, :nome, :prompt => true, :class => 'form-control' ) %>
-    </div>
-
-    <div class="field">
-      <%= f.label :categoria_id %><br>
-      <%= f.collection_select(:categoria_id, @categorias, :id, :nome, :prompt => true, :class => 'form-control' ) %>
-    </div>
-
-    <%= f.label :alugado %><br>
-
-    <%= f.check_box :alugado %>
-    
-  </div>
-  <div class="actions">
-    <%= f.button :submit,"Salvar", class: 'btn btn-success' %>
-    <%= link_to 'Voltar', veiculos_path, class: "btn btn-default"  %>
-  </div>
  
- <br>
-<% end %>
-

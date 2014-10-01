@@ -14,12 +14,15 @@
 </div>
 <% end %>
 
-<div class="form-group" style="width: 100%">
-	<div style="width: 48%;display: inline-block;float: left">
+	<div class="col-sm-6">
 		<%= f.input :cnpj, label: 'CNPJ', input_html: {class: 'form-control'} %>
+		<br>
 		<%= f.input :nome, label: 'Nome', input_html: {class: 'form-control'} %>
+		<br>
 		<%= f.input :responsavel, label: 'Responsavel', input_html: {class: 'form-control'} %>
+		<br>
 		<%= f.input :email, label: 'Email', input_html: {class: 'form-control'} %>
+		<br>
 		<%= f.input :telefone, label: 'Telefone', input_html: {class: 'form-control'} %>
 		
 		<div class="actions" style="margin-top: 100px;">
@@ -27,15 +30,19 @@
 			<%= link_to 'Voltar', locadoras_path,  class: "btn btn-default" %>
 		</div>
 	</div>
-	<div style="width: 48%;display: inline-block;float: right">
+	
+	<div class="col-sm-6">
 		<%= e.input :cep,label: 'CEP',input_html: {class: 'form-control',:type =>'number'} %>
+		<br>
 		<%= e.input :rua, label: 'Rua', input_html: {class: 'form-control'} %>
+		<br>
 		<%= e.input :bairro, label: 'Bairro', input_html: {class: 'form-control'} %>
+		<br>
 		<%= e.input :numero, label: 'Numero', input_html: {class: 'form-control'} %>
+		<br>
 		<%= e.input :cidade, label: 'Cidade', input_html: {class: 'form-control'} %>
+		<br>
 		<%= e.input :estado, label: 'Estado', input_html: {class: 'form-control'} %>
 	</div>
-	
-</div>
 <% end %>
 <% end %>
