@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -18,7 +19,7 @@
 //= require select2.min
 //= require bootstrap.min
 
-$(document).ready(function() {
-	$('select#simple-example').select2();
-});
 
+$(document).ready(function(){
+  $('select').select2({ width: '100%' });
+});

@@ -1,5 +1,5 @@
 <h1 class="page-header">Veiculos</h1>
-<%= link_to 'Cadastrar Veiculo', new_veiculo_path, class: "btn btn-default pull-right" %>
+<%= link_to 'Cadastrar Veiculo', new_veiculo_path, class: "btn btn-default pull-right" if can? :read, Veiculo %>
 <br><br>
 
 <ul role="tablist" class="nav nav-tabs">
@@ -27,7 +27,9 @@
           <th>Valor diaria</th>
           <th>Garagem</th>
           <th>Categoria</th>
-          <th colspan="3">Ações</th>
+          <% if can? :read, Veiculo %>
+            <th colspan="3">Ações</th>
+          <% end %>
         </tr>
       </thead>
 
@@ -45,12 +47,12 @@
             <td><%= veiculo.garagem.nome %></td>
             <td><%= veiculo.categoria.nome %></td>
             <td>
-              <%= link_to '', veiculo,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal' %>
+              <%= link_to '', veiculo,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal' if can? :read, Veiculo %>
             </td>
 
-            <td><%= link_to '', edit_veiculo_path(veiculo), class: "glyphicon glyphicon-edit" %></td>
+            <td><%= link_to '', edit_veiculo_path(veiculo), class: "glyphicon glyphicon-edit" if can? :manage, Veiculo %></td>
 
-            <td><%= link_to '', veiculo, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove-circle" %></td>
+            <td><%= link_to '', veiculo, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove-circle" if can? :manage, Veiculo %></td>
 
           </tr>
         <% end %>
@@ -74,7 +76,9 @@
           <th>Valor diaria</th>
           <th>Garagem</th>
           <th>Categoria</th>
-          <th colspan="3">Ações</th>
+          <% if can? :read, Veiculo %>
+            <th colspan="3">Ações</th>
+          <% end %>
         </tr>
       </thead>
 
@@ -92,12 +96,12 @@
             <td><%= moto.garagem.nome %></td>
             <td><%= moto.categoria.nome %></td>
             <td>
-              <%= link_to '', moto,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal' %>
+              <%= link_to '', moto,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal' if can? :read, Veiculo %>
             </td>
 
-            <td><%= link_to '', edit_veiculo_path(moto), class: "glyphicon glyphicon-edit" %></td>
+            <td><%= link_to '', edit_veiculo_path(moto), class: "glyphicon glyphicon-edit" if can? :manage, Veiculo %></td>
 
-            <td><%= link_to '', moto, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove-circle" %></td>
+            <td><%= link_to '', moto, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove-circle" if can? :manage, Veiculo %></td>
 
           </tr>
         <% end %>
@@ -121,7 +125,9 @@
         <th>Valor diaria</th>
         <th>Garagem</th>
         <th>Categoria</th>
-        <th colspan="3">Ações</th>
+        <% if can? :read, Veiculo %>
+          <th colspan="3">Ações</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -138,12 +144,12 @@
           <td><%= carro.garagem.nome %></td>
           <td><%= carro.categoria.nome %></td>
           <td>
-              <%= link_to '', carro,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal' %>
+              <%= link_to '', carro,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal' if can? :read, Veiculo %>
           </td>
 
-          <td><%= link_to '', edit_veiculo_path(carro), class: "glyphicon glyphicon-edit" %></td>
+          <td><%= link_to '', edit_veiculo_path(carro), class: "glyphicon glyphicon-edit" if can? :manage, Veiculo %></td>
 
-          <td><%= link_to '', carro, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove-circle" %></td>
+          <td><%= link_to '', carro, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove-circle" if can? :manage, Veiculo %></td>
 
         </tr>
       <% end %>

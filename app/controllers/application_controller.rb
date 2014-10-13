@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
 	  flash[:error] = "Access denied."
 	  redirect_to root_url
 	end
+
+	before_filter :include_parameters_devise, if: :devise_controller?
+
+protected
+	def include_parameters_devise
+		devise_parameter_sanitizer.for(:sign_up) << :role
+	end
 end

@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Usuarios
+admin = User.create email: 'admin@email.com',  password: '12345678', password_confirmation: '12345678', role: 'admin'
+cliente = User.create email: 'cliente@email.com',  password: '12345678', password_confirmation: '12345678', role: 'cliente'
+locadora = User.create email: 'locadora@email.com',  password: '12345678', password_confirmation: '12345678', role: 'locadora'
+
 # Popular endereços
 Endereco.create(cep: '656565656', rua: 'Oliveira Paiva', bairro: 'Vincente pinzon', numero: '123', cidade: 'Fortaleza', estado: 'CE')
 Endereco.create(cep: '656565655', rua: 'Jardim das Oliveiras', bairro: 'Cidade 2000', numero: '321', cidade: 'Fortaleza', estado: 'CE')

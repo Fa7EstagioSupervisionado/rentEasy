@@ -19,8 +19,8 @@ CONDITIONS OF ANY KIND, either express or implied. See the Apache License and th
 the specific language governing permissions and limitations under the Apache License and the GPL License.
 */
 
-$(document).ready(function() {
-    $('select#simple-example').select2();
+$(document).ready(function(){
+  $('select').select2();
 });
 
 

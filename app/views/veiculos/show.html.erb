@@ -51,4 +51,4 @@
 </p>
 
 
-<%= link_to 'Editar', edit_veiculo_path(@veiculo), class: "btn btn-default btn-sm" %>
+<%= link_to 'Editar', edit_veiculo_path(@veiculo), class: "btn btn-default btn-sm" if can? :manage, Veiculo %>

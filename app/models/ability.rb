@@ -6,10 +6,20 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
 
-    if user.admin?
+    if user.role == 'admin'
+
       can :manage, :all
-    else
-      can :read, :all
+
+    elsif user.role == 'locadora'
+
+      can :manage, Garagem
+      can :read, Veiculo
+
+    elsif user.role == 'cliente'
+
+      can :manage, Aluguel
+      can :read, Veiculo
+
     end
     #
     # The first argument to `can` is the action you are giving the user 

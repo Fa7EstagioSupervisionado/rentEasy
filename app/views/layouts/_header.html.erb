@@ -17,7 +17,7 @@
     <div class="navbar-collapse collapse">
       <p class="navbar-text pull-right">
         <% if user_signed_in? %>
-          Logado como <strong><%= current_user.email %></strong>.
+          <strong><%= current_user.email %></strong>.
           <%= link_to 'Editar conta', edit_user_registration_path, :class => 'btn btn-xs btn-default' %> 
           <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'btn btn-xs btn-default'  %>
         <% else %>
@@ -25,31 +25,33 @@
           <%= link_to "Login", new_user_session_path, :class => 'btn btn-xs btn-default'  %>
         <% end %>
       </p>   
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Veiculos<span class="caret"></span></a>
-          <ul role="menu" class="dropdown-menu">
-            <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Por Categoria</li>
-            <li><a href="#">Carros</a></li>
-            <li><a href="#">Motos</a></li>
-            <li><a href="#">4x4</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Adicionais</li>
-            <li><%= link_to "Opcionais",    opcionais_path %></li>
-          </ul>
-        </li>
-        <li><%= link_to "Locadoras",    locadoras_path %></li>
-        <li><%= link_to "Clientes",    clientes_path %></li>
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Localizações<span class="caret"></span></a>
-          <ul role="menu" class="dropdown-menu">
-            <li><%= link_to "Endereços",    enderecos_path %></li>
-            <li><%= link_to "Garagens",    garagens_path %></li>              
-          </ul>
-        </li>            
-        <li><%= link_to "Categorias",    categorias_path %></li>  
+      <ul class="nav navbar-nav">        
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Veiculos<span class="caret"></span></a>
+              <ul role="menu" class="dropdown-menu">          
+                <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Por Categoria</li>
+                <li><a href="#">Carros</a></li>
+                <li><a href="#">Motos</a></li>
+                <li><a href="#">4x4</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Outros</li>
+                <li><%= link_to "Opcionais",    opcionais_path %></li>
+              </ul>
+          </li>
+
+        <% if current_user && current_user.is_admin? %>  
+          <li><%= link_to "Locadoras",    locadoras_path %></li>
+          <li><%= link_to "Clientes",    clientes_path %></li>
+          <li><%= link_to "Categorias",    categorias_path %></li>  
+          <li><%= link_to "Endereços",    enderecos_path %></li>
+        <% end %>
+        
+        <% if current_user && current_user.is_locadora? %>  
+          <li><%= link_to "Garagens",    garagens_path %></li>
+        <% end %>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="select2.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('select').select2();
+      });
+    </script>
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag "application", media: "all",
                                            "data-turbolinks-track" => true %>
