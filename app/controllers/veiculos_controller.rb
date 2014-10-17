@@ -86,6 +86,6 @@ class VeiculosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def veiculo_params
-      params.require(:veiculo).permit(:placa, :marca, :ano, :modelo, :cor, :alugado, :valor_diaria, :garagem_id, :categoria_id, :locadora_id)
+      params.require(:veiculo).permit(:placa, :marca, :ano, :modelo, :cor, :alugado, :valor_diaria, :garagem_id, :categoria_id, :locadora_id, :foto)
     end
 end

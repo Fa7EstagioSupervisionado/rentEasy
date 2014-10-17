@@ -1,0 +1,31 @@
+<ul role="tablist" class="nav nav-tabs">  
+  <li><a data-toggle="tab" href="#carros"><%= link_to 'Carros', lista_carros_path %></a></li>
+  <li class="active"><a data-toggle="tab" href="#motos"><%= link_to 'Motos', lista_motos_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to 'Vans', lista_van_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to 'Minivans', lista_motos_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to '4x4', lista_motos_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to 'Limosine', lista_motos_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to 'Frete', lista_motos_path %></a></li>
+</ul>
+<br>
+
+  <div id="motos">
+    <% @motos.each do |moto| %>
+      <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <%= image_tag moto.foto.url(:medium) %>  
+            <div class="caption">             
+              <strong>Marca: </strong><%= moto.marca %><br>
+              <strong>Ano: </strong><%= moto.ano %><br>
+              <strong>Modelo: </strong><%= moto.modelo %><br>
+              <strong>Cor: </strong><%= moto.cor %><br>          
+              <strong>Diaria: </strong>R$ <%= moto.valor_diaria %><br>              
+              <br>
+              <p><a href="#" class="btn btn-primary" role="button">Alugar</a> 
+                <%= link_to 'Detalhes', moto,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

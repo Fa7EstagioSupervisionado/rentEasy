@@ -11,6 +11,7 @@ class AlugueisController < ApplicationController
   # GET /alugueis/1
   # GET /alugueis/1.json
   def show
+    prepara_form
     respond_to do |format|
       format.html
       format.js
@@ -20,7 +21,8 @@ class AlugueisController < ApplicationController
   # GET /alugueis/new
   def new
     prepara_form
-    @aluguel = Aluguel.new
+    @aluguel = Aluguel.new    
+    @veiculo = Veiculo.find(params[:veiculo_id])
   end
 
   # GET /alugueis/1/edit

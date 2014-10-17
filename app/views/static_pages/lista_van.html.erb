@@ -1,0 +1,35 @@
+<ul role="tablist" class="nav nav-tabs">  
+  <li><a data-toggle="tab" href="#carros"><%= link_to 'Carros', lista_carros_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to 'Motos', lista_motos_path %></a></li>
+  <li class="active"><a data-toggle="tab" href="#van"><%= link_to 'Vans', lista_van_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to 'Minivans', lista_motos_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to '4x4', lista_motos_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to 'Limosine', lista_motos_path %></a></li>
+  <li><a data-toggle="tab" href="#motos"><%= link_to 'Frete', lista_motos_path %></a></li>
+</ul>
+<br>
+
+  <div id="van">
+    <% @vans.each do |van| %>
+      <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <%= image_tag van.foto.url(:medium) %>  
+            <div class="caption">            
+              
+              <strong>ID: </strong><%= van.id %><br>
+              <strong>Marca: </strong><%= van.marca %><br>
+              <strong>Ano: </strong><%= van.ano %><br>
+              <strong>Modelo: </strong><%= van.modelo %><br>
+              <strong>Cor: </strong><%= van.cor %><br>          
+              <strong>Diaria: </strong>R$ <%= van.valor_diaria %><br>
+              
+              <br>
+              <p>
+                <%= link_to 'Alugar', new_aluguel_path(:veiculo_id => van.id), class: "btn btn-primary" %>
+                <%= link_to 'Detalhes', van,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

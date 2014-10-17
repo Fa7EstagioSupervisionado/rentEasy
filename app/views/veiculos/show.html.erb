@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
+<br>
 
+<div class="row">
+  <div class="col-sm-6 col-md-8">
+    <div class="thumbnail">
+      <%= image_tag @veiculo.foto.url(:medium) %>   
+    </div> 
+  </div>  
+</div>
+
+<br><br>
 <p>
   <strong>Placa:</strong>
   <%= @veiculo.placa %>

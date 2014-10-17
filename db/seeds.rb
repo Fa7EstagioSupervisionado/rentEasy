@@ -25,19 +25,21 @@ Garagem.create(nome: 'Garagem C', endereco_id: 3)
 Categoria.create(nome: 'Carro', capacidade_passageiros: 4, qt_bagagem_pequena: 4, qt_bagagem_grande: 2)
 Categoria.create(nome: 'Moto', capacidade_passageiros: 2, qt_bagagem_pequena: 1, qt_bagagem_grande: 1)
 Categoria.create(nome: 'Van', capacidade_passageiros: 6, qt_bagagem_pequena: 10, qt_bagagem_grande: 8)
+Categoria.create(nome: '4x4', capacidade_passageiros: 4, qt_bagagem_pequena: 10, qt_bagagem_grande: 6)
 
 # Popular Locadoras
 Locadora.create(cnpj: 1111, nome: 'Locadora A', endereco_id: 1, responsavel: 'Chico', email: 'teste@teste', telefone: 123123)
+Locadora.create(cnpj: 2211, nome: 'Locadora B', endereco_id: 2, responsavel: 'Jose', email: 'teste@testeteste', telefone: 1234123)
 
 # Popular veiculos
-Veiculo.create(placa: 'HXB-3890', marca: 'FIAT', ano: 2009, modelo: 'UNO', cor: 'prata', valor_diaria: 200, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1)
-Veiculo.create(placa: 'HBB-4090', marca: 'Pegeout', ano: 2004, modelo: '204', cor: 'branco', valor_diaria: 250, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1)
-Veiculo.create(placa: 'HZT-3890', marca: 'CITROEN', ano: 2010, modelo: 'RX-7', cor: 'preto', valor_diaria: 300, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1)
-Veiculo.create(placa: 'HVB-4990', marca: 'FIAT', ano: 2009, modelo: 'NOVO UNO', cor: 'prata', valor_diaria: 200, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1)
-Veiculo.create(placa: 'HBO-3890', marca: 'WOLKSVAGEN', ano: 2005, modelo: 'GOL', cor: 'prata', valor_diaria: 100, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1)
-Veiculo.create(placa: 'HXO-3399', marca: 'HONDA', ano: 2005, modelo: 'XL', cor: 'amarela', valor_diaria: 100, alugado: false, categoria_id: 2, garagem_id: 1, locadora_id: 1)
-
-
+Veiculo.create(placa: 'HXB-3890', marca: 'FIAT', ano: 2009, modelo: 'UNO', cor: 'prata', valor_diaria: 200, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1, foto_file_name: "mille.jpg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HBB-4090', marca: 'Pegeout', ano: 2004, modelo: '204', cor: 'branco', valor_diaria: 250, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1, foto_file_name: "p208.jpg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HZT-3890', marca: 'CITROEN', ano: 2010, modelo: 'RX-7', cor: 'preto', valor_diaria: 300, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1, foto_file_name: "rx7.jpg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HVB-4990', marca: 'FIAT', ano: 2009, modelo: 'NOVO UNO', cor: 'prata', valor_diaria: 200, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1, foto_file_name: "novo_uno.jpg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HBO-3890', marca: 'WOLKSVAGEN', ano: 2005, modelo: 'GOL', cor: 'prata', valor_diaria: 100, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 1, foto_file_name: "gol.jpg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HXO-3399', marca: 'HONDA', ano: 2005, modelo: 'XL', cor: 'amarela', valor_diaria: 100, alugado: false, categoria_id: 2, garagem_id: 1, locadora_id: 1, foto_file_name: "honda_xl.jpg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HXO-4323', marca: 'HYUNDAI', ano: 2001, modelo: 'HILUX', cor: 'grafite', valor_diaria: 500, alugado: false, categoria_id: 4, garagem_id: 1, locadora_id: 2, foto_file_name: "hilux.jpg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HJO-4323', marca: 'WOLKSVAGEN', ano: 1995, modelo: 'KOMBI', cor: 'verde', valor_diaria: 500, alugado: false, categoria_id: 3, garagem_id: 1, locadora_id: 2, foto_file_name: "kombi.jpg", foto_content_type: "image/jpeg")
 
 
 

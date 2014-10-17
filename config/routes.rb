@@ -7,6 +7,15 @@ Rails.application.routes.draw do
   match '/home',    to: 'static_pages#home',    via: 'get', as: 'home'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/lista_carros', to: 'static_pages#lista_carros', via: 'get', as: 'lista_carros'
+  match '/lista_motos', to: 'static_pages#lista_motos', via: 'get', as: 'lista_motos'
+  match '/lista_4x4', to: 'static_pages#lista_4x4', via: 'get', as: 'lista_4x4'
+  match '/lista_van', to: 'static_pages#lista_van', via: 'get', as: 'lista_van'
+
+  #Dashboard
+  match '/admin_index', to: 'dashboard#admin_index', via: 'get'
+  match '/cliente_index', to: 'dashboard#cliente_index', via: 'get'
+  match '/locadora_index', to: 'dashboard#locadora_index', via: 'get'
 
   resources :dashboard
   

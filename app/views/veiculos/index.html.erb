@@ -6,12 +6,9 @@
   <li class="active"><a data-toggle="tab" href="#todos">Todos</a></li>
   <li><a data-toggle="tab" href="#motos">Motos</a></li>
   <li><a data-toggle="tab" href="#carros">Carros</a></li>
-
 </ul>
 
 <div class="tab-content">
-
-<!-- Filtrar todos-->
 
     <div id="todos" class="tab-pane fade in active">
       <table class="table table-striped">
@@ -47,7 +44,7 @@
             <td><%= veiculo.garagem.nome %></td>
             <td><%= veiculo.categoria.nome %></td>
             <td>
-              <%= link_to '', veiculo,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal' if can? :read, Veiculo %>
+              <%= link_to '', veiculo,  remote: true, class: "glyphicon glyphicon-search", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
             </td>
 
             <td><%= link_to '', edit_veiculo_path(veiculo), class: "glyphicon glyphicon-edit" if can? :manage, Veiculo %></td>

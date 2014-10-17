@@ -4,10 +4,11 @@
 		<%= devise_error_messages! %>
 	    <%= f.email_field :email, required: false, autofocus: true, :class => "form-control" %>
 	    <%= f.password_field :password, required: false, :class => "form-control" %>
-	    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+	    <%= f.input :remember_me, label: 'Lembre-se de mim', as: :boolean if devise_mapping.rememberable? %>
 	    <br>
 	    <%= f.submit "Logar",:class=>'btn btn-primary' %>	  
 	<% end %>
+	<br>
 	<%= render "users/shared/links" %>
 </div>
 

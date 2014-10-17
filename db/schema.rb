@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923124953) do
+ActiveRecord::Schema.define(version: 20141015141450) do
 
   create_table "alugueis", force: true do |t|
     t.integer  "cliente_id"
@@ -124,6 +124,10 @@ ActiveRecord::Schema.define(version: 20140923124953) do
     t.integer  "categoria_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
   end
 
   add_index "veiculos", ["categoria_id"], name: "index_veiculos_on_categoria_id"

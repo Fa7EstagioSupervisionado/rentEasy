@@ -20,9 +20,8 @@
       <%= f.collection_select(:cliente_id, @clientes, :id, :nome, :prompt => true, id: "simple-example" ) %>
     </div>
 
-    <div class="field">      
-      <%= f.label :veiculo_id %><br>
-      <%= f.collection_select(:veiculo_id, @veiculos, :id, :modelo, :prompt => true, :class => 'form-control' ) %>
+    <div class="field">
+      <%= f.hidden_field :veiculo_id, :value => @veiculo.id%>
     </div>
 
     <div class="field">

@@ -19,6 +19,9 @@
 //= require select2.min
 //= require bootstrap.min
 
+$(function() {
+  $('.datepicker').datepicker();
+});
 
 $(document).ready(function(){
   $('select').select2({ width: '100%' });
