@@ -14,6 +14,9 @@ class StaticPagesController < ApplicationController
   	end
   end
 
+  def cadastro_usuario
+  end
+
   def help
   end
 
@@ -31,6 +34,6 @@ class StaticPagesController < ApplicationController
 
   def lista_van
     @vans = Veiculo.order("modelo").where(:categoria_id => 3)
-  end
+  end  
   
 end

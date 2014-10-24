@@ -1,0 +1,57 @@
+<div class="panel panel-info">  
+  <div class="panel-body">
+  	<div class="col-sm-16">
+			<h1>Passo 1 - Cadastro Perfil Locadora</h1>
+			<br>
+			<%= simple_form_for(@locadora) do |f| %>
+			<%= simple_form_for(@locadora.endereco) do |e| %>
+			<% if @locadora.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@locadora.errors.count, "error") %> prohibited this locadora from being saved:</h2>
+
+				<ul>
+					<% @locadora.errors.full_messages.each do |message| %>
+					<li>
+						<%= message %>
+					</li>
+					<% end %>
+				</ul>
+			</div>
+			<% end %>
+
+				<div class="col-sm-6">
+					<%= f.input :cnpj, label: 'CNPJ', input_html: {class: 'form-control'} %>
+					<br>
+					<%= f.input :nome, label: 'Nome', input_html: {class: 'form-control'} %>
+					<br>
+					<%= f.input :responsavel, label: 'Responsavel', input_html: {class: 'form-control'} %>
+					<br>
+					<%= f.input :email, label: 'Email', input_html: {class: 'form-control'} %>
+					<br>
+					<%= f.input :telefone, label: 'Telefone', input_html: {class: 'form-control'} %>	
+
+					<div class="actions" style="margin-top: 100px;">
+						<%= f.button :submit,'Confirmar Dados', class: 'btn btn-success' %>	
+						
+					</div>
+					
+				</div>
+				
+				<div class="col-sm-6">
+					<%= e.input :cep,label: 'CEP',input_html: {class: 'form-control',:type =>'number'} %>
+					<br>
+					<%= e.input :rua, label: 'Rua', input_html: {class: 'form-control'} %>
+					<br>
+					<%= e.input :bairro, label: 'Bairro', input_html: {class: 'form-control'} %>
+					<br>
+					<%= e.input :numero, label: 'Numero', input_html: {class: 'form-control'} %>
+					<br>
+					<%= e.input :cidade, label: 'Cidade', input_html: {class: 'form-control'} %>
+					<br>
+					<%= e.input :estado, label: 'Estado', input_html: {class: 'form-control'} %>
+				</div>
+			<% end %>
+			<% end %>
+		</div>
+  </div>
+</div>

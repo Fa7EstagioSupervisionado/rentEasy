@@ -18,13 +18,24 @@ class LocadorasController < ApplicationController
   end
 
   # GET /locadoras/new
+
   def new
     prepara_form
     @locadora = Locadora.new
     @locadora.endereco = Endereco.new
   end
 
+  def cadastro_perfil_locadora
+    prepara_form
+    @locadora = Locadora.new(locadora_params)
+    @locadora.endereco = Endereco.new(endereco_params)      
+  end
+
+  def cadastro_perfil_locadora_2 
+  end
+
   # GET /locadoras/1/edit
+  
   def edit
     prepara_form
   end
@@ -84,10 +95,10 @@ class LocadorasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def locadora_params
-      params.require(:locadora).permit(:cnpj, :nome, :endereco_id, :responsavel, :email, :telefone)
+      params.require(:locadora).permit(:cnpj, :nome, :endereco_id, :responsavel, :email, :telefone) if params[:locadora]
     end
     
     def endereco_params
-      params.require(:endereco).permit(:cep, :rua, :bairro, :numero, :cidade, :estado)
+      params.require(:endereco).permit(:cep, :rua, :bairro, :numero, :cidade, :estado) if params[:endereco]
     end
 end

@@ -1,0 +1,63 @@
+<div class="panel panel-info">  
+  <div class="panel-body">
+  	<div class="col-sm-16">
+		<h1>Passo 1 - Cadastro Perfil Cliente</h1>
+		<br>
+		<%= simple_form_for(@cliente) do |f| %>
+		<%= simple_form_for(@cliente.endereco) do |e| %>
+		<% if @cliente.errors.any? %>
+		<div id="error_explanation">
+		<h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+			<ul>
+				<% @cliente.errors.full_messages.each do |message| %>
+				<li>
+					<%= message %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
+
+		<div class="form-group" style="width: 100%;">
+			<div style="width: 48%;display: inline-block;float: left">
+				<%= f.input :nome, label: 'Nome', input_html: {class: 'form-control'} %>
+				<br>
+				<%= f.input :cpf, label: 'CPF', input_html: {class: 'form-control'} %>
+				<br>
+				<%= f.input :dt_nascimento, label: 'Dt. Nascimento', input_html: {class: 'form-control'} %>
+				<br>
+				<%= f.label :Sexo %>
+				<br>
+				<%= f.select(:sexo, options_for_select([['Masculino'], ['Feminino'],['Não Informado']]), {}, {class: "form-control"}) %>
+				<br>
+				<%= f.input :email, label: 'Email', input_html: {class: 'form-control'} %>
+				<br>
+				<%= f.input :telefone,label: 'Telefone', input_html: {class: 'form-control',:id => 'phone'} %>
+				<br>
+				<%= f.input :nr_habilitacao, label: 'Habilitação', input_html: {class: 'form-control'} %>
+				<br>
+				<br>
+				<div class="actions">
+					<%= f.button :submit,'Confirmar Dados', class: 'btn btn-success' %>
+				</div>
+			</div>
+			<div style="width: 48%;display: inline-block;float: right">
+				<%= e.input :cep,label: 'CEP',input_html: {class: 'form-control',:type =>'number'} %>
+				<br>
+				<%= e.input :rua, label: 'Rua', input_html: {class: 'form-control'} %>
+				<br>
+				<%= e.input :bairro, label: 'Bairro', input_html: {class: 'form-control'} %>
+				<br>
+				<%= e.input :numero, label: 'Numero', input_html: {class: 'form-control'} %>
+				<br>
+				<%= e.input :cidade, label: 'Cidade', input_html: {class: 'form-control'} %>
+				<br>
+				<%= e.input :estado, label: 'Estado', input_html: {class: 'form-control'} %>
+			</div>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
+  </div>
+</div>

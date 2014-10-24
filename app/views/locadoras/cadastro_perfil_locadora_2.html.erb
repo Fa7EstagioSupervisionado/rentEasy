@@ -1,0 +1,56 @@
+<p>
+  <strong>Cnpj:</strong>
+  <%= @locadora.cnpj %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @locadora.nome %>
+</p>
+
+<p>
+  <strong>Responsável:</strong>
+  <%= @locadora.responsavel %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @locadora.email %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @locadora.telefone %>
+</p>
+
+<p>
+  <strong>CEP:</strong>
+  <%= @locadora.endereco.cep %>
+</p>
+
+<p>
+  <strong>Logradouro:</strong>
+  <%= @locadora.endereco.rua %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @locadora.endereco.bairro %>
+</p>
+
+<p>
+  <strong>Número:</strong>
+  <%= @locadora.endereco.numero %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @locadora.endereco.cidade %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @locadora.endereco.estado %>
+</p>
+
+<%= link_to 'Continuar - Passo 2', new_registration_path(:locadora_id => @locadora.id), class: "btn btn-primary" %>

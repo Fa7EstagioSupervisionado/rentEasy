@@ -16,11 +16,18 @@ class ClientesController < ApplicationController
     end
   end
 
+
   # GET /clientes/new
   def new
     prepara_form
     @cliente = Cliente.new
     @cliente.endereco = Endereco.new
+  end
+
+  def cadastro_perfil_cliente
+    prepara_form
+    @cliente = Cliente.new(cliente_params)
+    @cliente.endereco = Endereco.new(endereco_params)     
   end
 
   # GET /clientes/1/edit
@@ -77,16 +84,16 @@ class ClientesController < ApplicationController
   end
 
   def prepara_form
-    @enderecos = Endereco.order :rua
+    @enderecos = Endereco.all
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def cliente_params
-    params.require(:cliente).permit(:nome, :cpf, :dt_nascimento, :sexo, :email, :endereco_id, :telefone, :nr_habilitacao)
+    params.require(:cliente).permit(:nome, :cpf, :dt_nascimento, :sexo, :email, :endereco_id, :telefone, :nr_habilitacao) if params[:cliente]
   end
 
  def endereco_params
-    params.require(:endereco).permit(:cep, :rua, :bairro, :numero, :cidade, :estado)
+    params.require(:endereco).permit(:cep, :rua, :bairro, :numero, :cidade, :estado) if params[:cliente]
   end
   
 end

@@ -6,6 +6,8 @@
     <%= f.error_notification %>
   <div class="col-sm-8">
     <div class="form-inputs">
+      <strong>Nome Cliente: </strong>
+      <p><%= @user.cliente.nome %> </p>
       <strong>E-mail</strong>
       <%= f.email_field :email, required: true, autofocus: true, :class => "form-control" %>
 
