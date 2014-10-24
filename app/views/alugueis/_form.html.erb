@@ -1,49 +1,55 @@
 <%= simple_form_for(@aluguel) do |f| %>
-  <% if @aluguel.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@aluguel.errors.count, "error") %> prohibited this aluguel from being saved:</h2>
+<% if @aluguel.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@aluguel.errors.count, "error") %> prohibited this aluguel from being saved:</h2>
 
-      <ul>
-      <% @aluguel.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-
-    <head>
-
-    <div class="field">
-      <%= f.label :cliente_id %><br>
-      <%= f.collection_select(:cliente_id, @clientes, :id, :nome, :prompt => true, id: "simple-example" ) %>
-    </div>
-
-    <div class="field">
-      <%= f.hidden_field :veiculo_id, :value => @veiculo.id%>
-    </div>
-
-    <div class="field">
-      <%= f.label :dt_recebimento %><br>
-      <%= f.datetime_select :dt_recebimento %>
-    </div>
-
-    <div class="field">
-      <%= f.label :dt_devolucao %><br>
-      <%= f.datetime_select :dt_devolucao %>
-    </div><br>
-
-    <div class="field">
-      <%= f.input :preco_total, label: 'Preço Total', input_html: {class: 'form-control'} %><br>
-    </div>
-    
-  </div>
-  <div class="actions">
-    <%= f.button :submit, class: 'btn btn-success' %>
-  </div>
- 
- <br>
+	<ul>
+		<% @aluguel.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+		<% end %>
+	</ul>
+</div>
 <% end %>
 
+<div class="form-group">
+
+	<div class="field">
+		<%= f.hidden_field :veiculo_id, :value => @veiculo.id%>
+	</div>
+
+	<div class="field">
+		<%= f.label :cliente_id %>
+		<br>
+		<%= f.collection_select(:cliente_id, @clientes, :id, :nome, :prompt => true, :class => 'form-control' ) %>
+	</div>
+
+	<div class="field">
+		<%= f.label :dt_recebimento %>
+		<br>
+		<%= f.date_select :dt_recebimento %>
+	</div>
+
+	<div class="field">
+		<%= f.label :dt_devolucao %>
+		<br>
+		<%= f.date_select :dt_devolucao %>
+	</div>
+	<br>
+
+	<div class="field" style="width: 50%">
+		<%= f.label :preco_total %>
+		<%= @aluguel.preco_total %>
+		<br>
+	</div>
+
+</div>
+<div class="actions">
+
+	<%= f.button :submit, class: 'btn btn-success'%>
+</div>
+
+<br>
+<% end %>
 
