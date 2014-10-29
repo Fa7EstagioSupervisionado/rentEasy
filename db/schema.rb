@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20141015141450) do
     t.string   "descricao"
     t.string   "nome"
     t.float    "valor"
-    t.integer  "veiculo_id"
+    t.integer  "locadora_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

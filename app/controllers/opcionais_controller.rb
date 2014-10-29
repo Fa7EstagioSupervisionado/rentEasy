@@ -5,7 +5,8 @@ class OpcionaisController < ApplicationController
   # GET /opcionais.json
   def index
     prepara_form
-    @opcionais = Opcional.all
+    @locadora = Locadora.find(params[:locadora_id])
+    @opcionais = Opcional.where(["locadora_id =?",@locadora.id])
   end
 
   # GET /opcionais/1
