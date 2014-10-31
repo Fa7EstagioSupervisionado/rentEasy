@@ -1,55 +1,93 @@
 <%= simple_form_for(@aluguel) do |f| %>
-<% if @aluguel.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@aluguel.errors.count, "error") %> prohibited this aluguel from being saved:</h2>
 
-	<ul>
-		<% @aluguel.errors.full_messages.each do |message| %>
-		<li>
-			<%= message %>
-		</li>
-		<% end %>
-	</ul>
+<% if @aluguel.errors.any? %>
+<div class="alert alert-danger" role="alert">
+
+	<% @aluguel.errors.messages.each do |message| %>
+	<%= message.last.last.html_safe %>
+	
+	<br>
+	<% end %>
+
 </div>
 <% end %>
 
 <div class="form-group">
+	<div style="width: 48%;display: inline-block;float: right">
+		<div class="field">
+			<%= f.hidden_field :veiculo_id, :value => @veiculo.id%>
+			<%= f.hidden_field :cliente_id, :value => current_user.cliente.id%>
+		</div>
 
-	<div class="field">
-		<%= f.hidden_field :veiculo_id, :value => @veiculo.id%>
-	</div>
-
-	<div class="field">
+		<!--
+		<div class="field">
+		<%= current_user.cliente.id %>
 		<%= f.label :cliente_id %>
 		<br>
 		<%= f.collection_select(:cliente_id, @clientes, :id, :nome, :prompt => true, :class => 'form-control' ) %>
-	</div>
+		</div>
+		-->
 
-	<div class="field">
-		<%= f.label :dt_recebimento %>
+		<div class="field">
+			<%= f.label :dt_recebimento, "Data recebimento"%>
+			<br>
+			<%= f.date_select :dt_recebimento,order: [:day, :month, :year]%>
+		</div>
+
+		<div class="field" onblur="alert('hello');">
+			<%= f.label :dt_devolucao ,"Data devolução"%>
+			<br>
+			<%= f.date_select :dt_devolucao, order: [:day, :month, :year],input_html: { class: 'form-control', :onClick => "alert('teste');"}%>
+		</div>
 		<br>
-		<%= f.date_select :dt_recebimento %>
+		
+		<!-- 
+		<div class="field" style="width: 50%">
+			<%= f.label :preco_total, "Preço total" %>
+			<%= @aluguel.preco_total %>
+			<br>
+		</div>
+		-->
+		<div class="actions">
+			<%= f.button :submit, "Alugar", class: 'btn btn-success'%>
+			<%= link_to 'Voltar', lista_carros_path, class: "btn btn-default"  %>
+		</div>
+
 	</div>
 
-	<div class="field">
-		<%= f.label :dt_devolucao %>
+	<div style="width: 48%;display: inline-block;float: left">
+		
+		<div class="row">
+			<div class="col-sm-6 col-md-8" >
+				<div class="thumbnail">
+					<%= image_tag @veiculo.foto.url(:medium) %>
+				</div>
+			</div>
+		</div>
+		<strong>Marca:</strong>
+		<%= @veiculo.marca %>
 		<br>
-		<%= f.date_select :dt_devolucao %>
-	</div>
-	<br>
-
-	<div class="field" style="width: 50%">
-		<%= f.label :preco_total %>
-		<%= @aluguel.preco_total %>
+		<strong>Ano:</strong>
+		<%= @veiculo.ano %>
+		<br>
+		<strong>Modelo:</strong>
+		<%= @veiculo.modelo %>
+		<br>
+		<strong>Cor:</strong>
+		<%= @veiculo.cor %>
+		<br>
+		<strong>Locadora:</strong>
+		<%= @veiculo.locadora.nome %>
+		<br>
+		<strong>Valor diária:</strong>
+		R$ <%= @veiculo.valor_diaria %>
+		<br>
+		<strong>Categoria:</strong>
+		<%= @veiculo.categoria.nome %>
 		<br>
 	</div>
 
 </div>
-<div class="actions">
-
-	<%= f.button :submit, class: 'btn btn-success'%>
-</div>
-
 <br>
 <% end %>
 

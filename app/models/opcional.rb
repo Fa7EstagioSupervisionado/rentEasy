@@ -1,7 +1,6 @@
 class Opcional < ActiveRecord::Base
-	belongs_to :veiculo
+	belongs_to :locadora
 
-	validates_associated :veiculo
-
+	validates_associated :locadora
 	validates_presence_of :descricao, :valor, :nome
 end

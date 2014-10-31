@@ -1,204 +1,269 @@
 <ul role="tablist" class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#carros">Carros</a></li>
-  <li><a data-toggle="tab" href="#motos">Motos</a></li>
-  <li><a data-toggle="tab" href="#vans">Vans</a></li>
-  <li><a data-toggle="tab" href="#pickups">Pickups</a></li>
-  <li><a data-toggle="tab" href="#limos">Limozines</a></li>
-  <li><a data-toggle="tab" href="#familia">Familia</a></li>
-  <li><a data-toggle="tab" href="#frete_c">Frete Comum</a></li>
-  <li><a data-toggle="tab" href="#frete_f">Frete Frigorifico</a></li>
+	<li class="active">
+		<a data-toggle="tab" href="#carros">Carros</a>
+	</li>
+	<li>
+		<a data-toggle="tab" href="#motos">Motos</a>
+	</li>
+	<li>
+		<a data-toggle="tab" href="#vans">Vans</a>
+	</li>
+	<li>
+		<a data-toggle="tab" href="#pickups">Pickups</a>
+	</li>
+	<li>
+		<a data-toggle="tab" href="#limos">Limozines</a>
+	</li>
+	<li>
+		<a data-toggle="tab" href="#familia">Familia</a>
+	</li>
+	<li>
+		<a data-toggle="tab" href="#frete_c">Frete Comum</a>
+	</li>
+	<li>
+		<a data-toggle="tab" href="#frete_f">Frete Frigorifico</a>
+	</li>
 </ul>
 <br>
 
 <div class="tab-content">
+	<% @carros.each do |carro| %>
+		<% if carro.alugado == false then %>
+			<div id="carros" class="tab-pane fade in active">
+		
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<%= image_tag carro.foto.url(:medium) %>
+						<div class="caption">
+		
+							<strong>Marca: </strong><%= carro.marca %>
+							<br>
+							<strong>Ano: </strong><%= carro.ano %>
+							<br>
+							<strong>Modelo: </strong><%= carro.modelo %>
+							<br>
+							<strong>Cor: </strong><%= carro.cor %>
+							<br>
+							<strong>Diaria: </strong>R$ <%= carro.valor_diaria %>
+							<br>
+							<br>
+							<p>
+								<%= link_to 'Alugar', new_aluguel_path(:veiculo_id => carro.id), class: "btn btn-primary" %>
+								<%= link_to 'Detalhes', carro,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+		<% end %>
+	<% end %>
 
-    <div id="carros" class="tab-pane fade in active">
-        <% @carros.each do |carro| %>
-          <div class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <%= image_tag carro.foto.url(:medium) %>  
-                <div class="caption">            
-                  
-                  <strong>Marca: </strong><%= carro.marca %><br>
-                  <strong>Ano: </strong><%= carro.ano %><br>
-                  <strong>Modelo: </strong><%= carro.modelo %><br>
-                  <strong>Cor: </strong><%= carro.cor %><br>          
-                  <strong>Diaria: </strong>R$ <%= carro.valor_diaria %>
-                  <br>                  
-                  <br>
-                  <p>
-                    <%= link_to 'Alugar', new_aluguel_path(:veiculo_id => carro.id), class: "btn btn-primary" %>
-                    <%= link_to 'Detalhes', carro,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
-                </div>
-              </div>
-          </div>
-        <% end %>
-    </div>
+	<!-- Filtrar por motos -->
+	<div id="motos" class="tab-pane fade">
+		<% @motos.each do |moto| %>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<%= image_tag moto.foto.url(:medium) %>
+				<div class="caption">
+					<strong>Marca: </strong><%= moto.marca %>
+					<br>
+					<strong>Ano: </strong><%= moto.ano %>
+					<br>
+					<strong>Modelo: </strong><%= moto.modelo %>
+					<br>
+					<strong>Cor: </strong><%= moto.cor %>
+					<br>
+					<strong>Diaria: </strong>R$ <%= moto.valor_diaria %>
+					<br>
+					<br>
+					<p>
+						<a href="#" class="btn btn-primary" role="button">Alugar</a>
+						<%= link_to 'Detalhes', moto,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
 
-<!-- Filtrar por motos -->
-    <div id="motos" class="tab-pane fade">
-      <% @motos.each do |moto| %>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <%= image_tag moto.foto.url(:medium) %>  
-              <div class="caption">             
-                <strong>Marca: </strong><%= moto.marca %><br>
-                <strong>Ano: </strong><%= moto.ano %><br>
-                <strong>Modelo: </strong><%= moto.modelo %><br>
-                <strong>Cor: </strong><%= moto.cor %><br>          
-                <strong>Diaria: </strong>R$ <%= moto.valor_diaria %><br>              
-                <br>
-                <p><a href="#" class="btn btn-primary" role="button">Alugar</a> 
-                  <%= link_to 'Detalhes', moto,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
+	<div id="vans" class="tab-pane fade">
+		<% @vans.each do |van| %>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<%= image_tag van.foto.url(:medium) %>
+				<div class="caption">
 
-    <div id="vans" class="tab-pane fade">
-      <% @vans.each do |van| %>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <%= image_tag van.foto.url(:medium) %>  
-              <div class="caption">            
-                
-                <strong>ID: </strong><%= van.id %><br>
-                <strong>Marca: </strong><%= van.marca %><br>
-                <strong>Ano: </strong><%= van.ano %><br>
-                <strong>Modelo: </strong><%= van.modelo %><br>
-                <strong>Cor: </strong><%= van.cor %><br>          
-                <strong>Diaria: </strong>R$ <%= van.valor_diaria %><br>
-                
-                <br>
-                <p>
-                  <%= link_to 'Alugar', new_aluguel_path(:veiculo_id => van.id), class: "btn btn-primary" %>
-                  <%= link_to 'Detalhes', van,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
+					<strong>ID: </strong><%= van.id %>
+					<br>
+					<strong>Marca: </strong><%= van.marca %>
+					<br>
+					<strong>Ano: </strong><%= van.ano %>
+					<br>
+					<strong>Modelo: </strong><%= van.modelo %>
+					<br>
+					<strong>Cor: </strong><%= van.cor %>
+					<br>
+					<strong>Diaria: </strong>R$ <%= van.valor_diaria %>
+					<br>
 
-    <div id="pickups" class="tab-pane fade">
-      <% @pickups.each do |pickup| %>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <%= image_tag pickup.foto.url(:medium) %>  
-              <div class="caption">            
-                
-                <strong>ID: </strong><%= pickup.id %><br>
-                <strong>Marca: </strong><%= pickup.marca %><br>
-                <strong>Ano: </strong><%= pickup.ano %><br>
-                <strong>Modelo: </strong><%= pickup.modelo %><br>
-                <strong>Cor: </strong><%= pickup.cor %><br>          
-                <strong>Diaria: </strong>R$ <%= pickup.valor_diaria %><br>
-                
-                <br>
-                <p>
-                  <%= link_to 'Alugar', new_aluguel_path(:veiculo_id => pickup.id), class: "btn btn-primary" %>
-                  <%= link_to 'Detalhes', pickup,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
+					<br>
+					<p>
+						<%= link_to 'Alugar', new_aluguel_path(:veiculo_id => van.id), class: "btn btn-primary" %>
+						<%= link_to 'Detalhes', van,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
 
-    <div id="limos" class="tab-pane fade">
-      <% @limos.each do |limo| %>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <%= image_tag limo.foto.url(:medium) %>  
-              <div class="caption">            
-                
-                <strong>ID: </strong><%= limo.id %><br>
-                <strong>Marca: </strong><%= limo.marca %><br>
-                <strong>Ano: </strong><%= limo.ano %><br>
-                <strong>Modelo: </strong><%= limo.modelo %><br>
-                <strong>Cor: </strong><%= limo.cor %><br>          
-                <strong>Diaria: </strong>R$ <%= limo.valor_diaria %><br>
-                
-                <br>
-                <p>
-                  <%= link_to 'Alugar', new_aluguel_path(:veiculo_id => limo.id), class: "btn btn-primary" %>
-                  <%= link_to 'Detalhes', limo,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
+	<div id="pickups" class="tab-pane fade">
+		<% @pickups.each do |pickup| %>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<%= image_tag pickup.foto.url(:medium) %>
+				<div class="caption">
 
-    <div id="familia" class="tab-pane fade">
-      <% @familias.each do |familia| %>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <%= image_tag familia.foto.url(:medium) %>  
-              <div class="caption">            
-                
-                <strong>ID: </strong><%= familia.id %><br>
-                <strong>Marca: </strong><%= familia.marca %><br>
-                <strong>Ano: </strong><%= familia.ano %><br>
-                <strong>Modelo: </strong><%= familia.modelo %><br>
-                <strong>Cor: </strong><%= familia.cor %><br>          
-                <strong>Diaria: </strong>R$ <%= familia.valor_diaria %><br>
-                
-                <br>
-                <p>
-                  <%= link_to 'Alugar', new_aluguel_path(:veiculo_id => familia.id), class: "btn btn-primary" %>
-                  <%= link_to 'Detalhes', familia,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
+					<strong>ID: </strong><%= pickup.id %>
+					<br>
+					<strong>Marca: </strong><%= pickup.marca %>
+					<br>
+					<strong>Ano: </strong><%= pickup.ano %>
+					<br>
+					<strong>Modelo: </strong><%= pickup.modelo %>
+					<br>
+					<strong>Cor: </strong><%= pickup.cor %>
+					<br>
+					<strong>Diaria: </strong>R$ <%= pickup.valor_diaria %>
+					<br>
 
-    <div id="frete_c" class="tab-pane fade">
-      <% @frete_comun.each do |frete_c| %>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <%= image_tag frete_c.foto.url(:medium) %>  
-              <div class="caption">            
-                
-                <strong>ID: </strong><%= frete_c.id %><br>
-                <strong>Marca: </strong><%= frete_c.marca %><br>
-                <strong>Ano: </strong><%= frete_c.ano %><br>
-                <strong>Modelo: </strong><%= frete_c.modelo %><br>
-                <strong>Cor: </strong><%= frete_c.cor %><br>          
-                <strong>Diaria: </strong>R$ <%= frete_c.valor_diaria %><br>
-                
-                <br>
-                <p>
-                  <%= link_to 'Alugar', new_aluguel_path(:veiculo_id => frete_c.id), class: "btn btn-primary" %>
-                  <%= link_to 'Detalhes', frete_c,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
+					<br>
+					<p>
+						<%= link_to 'Alugar', new_aluguel_path(:veiculo_id => pickup.id), class: "btn btn-primary" %>
+						<%= link_to 'Detalhes', pickup,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
 
-    <div id="frete_f" class="tab-pane fade">
-      <% @frete_frigo.each do |frete_f| %>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <%= image_tag frete_f.foto.url(:medium) %>  
-              <div class="caption">            
-                
-                <strong>ID: </strong><%= frete_f.id %><br>
-                <strong>Marca: </strong><%= frete_f.marca %><br>
-                <strong>Ano: </strong><%= frete_f.ano %><br>
-                <strong>Modelo: </strong><%= frete_f.modelo %><br>
-                <strong>Cor: </strong><%= frete_f.cor %><br>          
-                <strong>Diaria: </strong>R$ <%= frete_f.valor_diaria %><br>
-                
-                <br>
-                <p>
-                  <%= link_to 'Alugar', new_aluguel_path(:veiculo_id => frete_f.id), class: "btn btn-primary" %>
-                  <%= link_to 'Detalhes', frete_f,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
-              </div>
-            </div>
-        </div>
-      <% end %>
-    </div>
+	<div id="limos" class="tab-pane fade">
+		<% @limos.each do |limo| %>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<%= image_tag limo.foto.url(:medium) %>
+				<div class="caption">
 
-  </div>
+					<strong>ID: </strong><%= limo.id %>
+					<br>
+					<strong>Marca: </strong><%= limo.marca %>
+					<br>
+					<strong>Ano: </strong><%= limo.ano %>
+					<br>
+					<strong>Modelo: </strong><%= limo.modelo %>
+					<br>
+					<strong>Cor: </strong><%= limo.cor %>
+					<br>
+					<strong>Diaria: </strong>R$ <%= limo.valor_diaria %>
+					<br>
+
+					<br>
+					<p>
+						<%= link_to 'Alugar', new_aluguel_path(:veiculo_id => limo.id), class: "btn btn-primary" %>
+						<%= link_to 'Detalhes', limo,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+	<div id="familia" class="tab-pane fade">
+		<% @familias.each do |familia| %>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<%= image_tag familia.foto.url(:medium) %>
+				<div class="caption">
+
+					<strong>ID: </strong><%= familia.id %>
+					<br>
+					<strong>Marca: </strong><%= familia.marca %>
+					<br>
+					<strong>Ano: </strong><%= familia.ano %>
+					<br>
+					<strong>Modelo: </strong><%= familia.modelo %>
+					<br>
+					<strong>Cor: </strong><%= familia.cor %>
+					<br>
+					<strong>Diaria: </strong>R$ <%= familia.valor_diaria %>
+					<br>
+
+					<br>
+					<p>
+						<%= link_to 'Alugar', new_aluguel_path(:veiculo_id => familia.id), class: "btn btn-primary" %>
+						<%= link_to 'Detalhes', familia,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+	<div id="frete_c" class="tab-pane fade">
+		<% @frete_comun.each do |frete_c| %>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<%= image_tag frete_c.foto.url(:medium) %>
+				<div class="caption">
+
+					<strong>ID: </strong><%= frete_c.id %>
+					<br>
+					<strong>Marca: </strong><%= frete_c.marca %>
+					<br>
+					<strong>Ano: </strong><%= frete_c.ano %>
+					<br>
+					<strong>Modelo: </strong><%= frete_c.modelo %>
+					<br>
+					<strong>Cor: </strong><%= frete_c.cor %>
+					<br>
+					<strong>Diaria: </strong>R$ <%= frete_c.valor_diaria %>
+					<br>
+
+					<br>
+					<p>
+						<%= link_to 'Alugar', new_aluguel_path(:veiculo_id => frete_c.id), class: "btn btn-primary" %>
+						<%= link_to 'Detalhes', frete_c,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+	<div id="frete_f" class="tab-pane fade">
+		<% @frete_frigo.each do |frete_f| %>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<%= image_tag frete_f.foto.url(:medium) %>
+				<div class="caption">
+
+					<strong>ID: </strong><%= frete_f.id %>
+					<br>
+					<strong>Marca: </strong><%= frete_f.marca %>
+					<br>
+					<strong>Ano: </strong><%= frete_f.ano %>
+					<br>
+					<strong>Modelo: </strong><%= frete_f.modelo %>
+					<br>
+					<strong>Cor: </strong><%= frete_f.cor %>
+					<br>
+					<strong>Diaria: </strong>R$ <%= frete_f.valor_diaria %>
+					<br>
+
+					<br>
+					<p>
+						<%= link_to 'Alugar', new_aluguel_path(:veiculo_id => frete_f.id), class: "btn btn-primary" %>
+						<%= link_to 'Detalhes', frete_f,  remote: true, class: "btn btn-default", 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+</div>
 </div>

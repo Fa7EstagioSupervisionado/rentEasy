@@ -1,4 +1,6 @@
 class AlugueisController < ApplicationController
+  before_filter :authenticate_user!
+  require 'user'
   before_action :set_aluguel, only: [:show, :edit, :update, :destroy]
 
   # GET /alugueis
@@ -11,7 +13,6 @@ class AlugueisController < ApplicationController
   # GET /alugueis/1
   # GET /alugueis/1.json
   def show
-    prepara_form
     respond_to do |format|
       format.html
       format.js
@@ -23,6 +24,7 @@ class AlugueisController < ApplicationController
     prepara_form
     @aluguel = Aluguel.new    
     @veiculo = Veiculo.find(params[:veiculo_id])
+    
   end
 
   # GET /alugueis/1/edit
@@ -34,12 +36,27 @@ class AlugueisController < ApplicationController
   # POST /alugueis.json
   def create
     prepara_form
+    
     @aluguel = Aluguel.new(aluguel_params)
-
+    @veiculo = Veiculo.find(@aluguel.veiculo.id)
+  
+    diff = ((@aluguel.dt_devolucao - @aluguel.dt_recebimento).to_i)/86400
+    
+    if diff == 0 then
+      @aluguel.preco_total = @aluguel.veiculo.valor_diaria
+    else
+      @aluguel.preco_total = diff * @aluguel.veiculo.valor_diaria
+    end  
+  
+    @veiculo.alugado = true
+    @veiculo.save
+        
     respond_to do |format|
       if @aluguel.save
-        format.html { redirect_to @aluguel, notice: 'Aluguel was successfully created.' }
-        format.json { render :show, status: :created, location: @aluguel }
+            
+        format.html { redirect_to @aluguel, notice: 'Sua reserva foi realizada com sucesso. Em breve você receberá um email os detalhes.' }
+        format.json { render :teste, status: :created, location: @aluguel }
+        
       else
         format.html { render :new }
         format.json { render json: @aluguel.errors, status: :unprocessable_entity }
