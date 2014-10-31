@@ -4,7 +4,7 @@ class CreateOpcionais < ActiveRecord::Migration
       t.string :descricao
       t.string :nome
       t.float :valor
-      t.integer :veiculo_id
+      t.integer :locadora_id
 
       t.timestamps
     end

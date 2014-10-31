@@ -35,13 +35,13 @@
           <li><%= link_to "Clientes",    clientes_path %></li>
           <li><%= link_to "Categorias",    categorias_path %></li>  
           <li><%= link_to "Endereços",    enderecos_path %></li>
-          <li><%= link_to "Opcionais",    opcionais_path %></li>
+          <li><%= link_to "Opcionais",    opcionais_path%></li>
         <% end %>
         
         <% if current_user && current_user.is_locadora? %>  
           <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
           <li><%= link_to "Garagens",    garagens_path %></li>
-          <li><%= link_to "Opcionais",    opcionais_path %></li>
+          <li><%= link_to "Opcionais",    opcionais_path(:locadora_id => current_user.locadora_id) %></li>
         <% end %>
 
       </ul>

@@ -6,11 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Usuarios
-admin = User.create email: 'admin@email.com',  password: '12345678', password_confirmation: '12345678', role: 'admin'
-cliente = User.create email: 'cliente@email.com',  password: '12345678', password_confirmation: '12345678', role: 'cliente'
-locadora = User.create email: 'locadora@email.com',  password: '12345678', password_confirmation: '12345678', role: 'locadora'
-
 #Popular Clientes
 Cliente.create(nome: "DECOY", cpf: "123123213123", dt_nascimento: "2014-10-24", sexo: "Masculino", email: "asdas@daasda", endereco_id: 4, telefone: "123123", nr_habilitacao: "123123")
 
@@ -39,6 +34,11 @@ Locadora.create(cnpj: 1111, nome: 'DECOY', endereco_id: 1, responsavel: 'asdasd'
 Locadora.create(cnpj: 1111, nome: 'Locadora A', endereco_id: 1, responsavel: 'Chico', email: 'teste@teste', telefone: 123123)
 Locadora.create(cnpj: 2211, nome: 'Locadora B', endereco_id: 2, responsavel: 'Jose', email: 'teste@testeteste', telefone: 1234123)
 
+# Usuarios
+admin = User.create email: 'admin@email.com',  password: '12345678', password_confirmation: '12345678', role: 'admin'
+cliente = User.create email: 'cliente@email.com',  password: '12345678', password_confirmation: '12345678', role: 'cliente', cliente_id: 1
+locadora = User.create email: 'locadora@email.com',  password: '12345678', password_confirmation: '12345678', role: 'locadora', locadora_id: 1
+
 # Popular veiculos
 #Carros
 Veiculo.create(placa: 'HXB-3890', marca: 'FIAT', ano: 2009, modelo: 'UNO', cor: 'prata', valor_diaria: 200, alugado: false, categoria_id: 1, garagem_id: 1, locadora_id: 2, foto_file_name: "mille.jpg", foto_content_type: "image/jpeg")
@@ -65,5 +65,10 @@ Veiculo.create(placa: 'HXO-4323', marca: 'HONDA', ano: 2001, modelo: 'DECISION',
 Veiculo.create(placa: 'HXO-4323', marca: 'KIA', ano: 2001, modelo: 'BONGO', cor: 'grafite', valor_diaria: 500, alugado: false, categoria_id: 7, garagem_id: 1, locadora_id: 2, foto_file_name: "bongo.jpg", foto_content_type: "image/jpeg")
 #Frete Frigorifico
 Veiculo.create(placa: 'HXO-4323', marca: 'HYUNDAI', ano: 2001, modelo: 'HD78', cor: 'grafite', valor_diaria: 500, alugado: false, categoria_id: 8, garagem_id: 1, locadora_id: 2, foto_file_name: "hd_78.jpg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HXO-3399', marca: 'HONDA', ano: 2005, modelo: 'XL', cor: 'amarela', valor_diaria: 100, alugado: false, categoria_id: 2, garagem_id: 1, locadora_id: 1, foto_file_name: "honda_xl.jpg", foto_content_type: "image/jpeg")
+
+#Opcionais
+Opcional.create(descricao: 'Cadeira para bebê até 2 anos', nome: 'Cadeira de bebê',valor: 20, locadora_id: 1 )
+Opcional.create(descricao: 'GPS tela 5pol', nome: 'GPS',valor: 10, locadora_id: 1 )
 
 
