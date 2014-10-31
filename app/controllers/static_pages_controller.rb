@@ -20,20 +20,53 @@ class StaticPagesController < ApplicationController
   def help
   end
 
+  def lista_veiculos
+    set_veiculos
+  end
+
   def lista_carros
-    @carros = Veiculo.order("modelo").where(:categoria_id => 1)    
+    set_veiculos
   end
 
   def lista_motos
-    @motos = Veiculo.order("modelo").where(:categoria_id => 2)
+    set_veiculos
   end
 
-  def lista_4x4
-    @motos = Veiculo.order("modelo").where(:categoria_id => 4)
+  def lista_pickups
+    set_veiculos
   end
 
   def lista_van
-    @vans = Veiculo.order("modelo").where(:categoria_id => 3)
+    set_veiculos
   end  
+
+  def lista_limo
+    set_veiculos
+  end
+
+  def lista_familia
+    set_veiculos
+  end
+
+  def lista_frete_comun
+    set_veiculos
+  end
+
+  def lista_frete_frigo
+    set_veiculos
+  end
+
+  private
+
+  def set_veiculos
+    @carros = Veiculo.where(:categoria_id => 1)
+    @motos = Veiculo.where(:categoria_id => 2)  
+    @vans = Veiculo.where(:categoria_id => 3)
+    @pickups = Veiculo.where(:categoria_id => 4)
+    @limos = Veiculo.where(:categoria_id => 5)
+    @familias = Veiculo.where(:categoria_id => 6)
+    @frete_comun = Veiculo.where(:categoria_id => 7)
+    @frete_frigo = Veiculo.where(:categoria_id => 8) 
+  end
   
 end

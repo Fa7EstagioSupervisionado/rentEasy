@@ -2,7 +2,7 @@
 <html lang="en">
 
 <body>
-<!-- <div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
+<div data-ride="carousel" class="carousel slide" id="carousel-example-generic">
   <ol class="carousel-indicators">
     <li class="" data-slide-to="0" data-target="#carousel-example-generic"></li>
     <li data-slide-to="1" data-target="#carousel-example-generic" class="active"></li>
@@ -16,7 +16,7 @@
       <%= image_tag("carrocel2.jpeg", :style => "width: 1400px; height: 500px;", :alt => "Second slide") %>       
     </div>
     <div class="item">
-      <%= image_tag("carrocel3.jpeg", :style => "width: 1400px; height: 500px;", :alt => "third slide") %>
+      <%= image_tag("carrocel3.jpg", :style => "width: 1400px; height: 500px;", :alt => "third slide") %>
     </div>
   </div>
   <a data-slide="prev" role="button" href="#carousel-example-generic" class="left carousel-control">
@@ -25,7 +25,8 @@
   <a data-slide="next" role="button" href="#carousel-example-generic" class="right carousel-control">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
-</div> -->
+</div>
+
 <br>
 <div class="row">
 
@@ -57,16 +58,16 @@
         <div class="row-1">
           <%= link_to image_tag("carro.png", :alt => "rss feed"), lista_carros_path %>
           <%= link_to image_tag("moto.png", :alt => "rss feed"), lista_motos_path %>
-          <%= link_to image_tag("limo.png", :alt => "rss feed") %>  
+          <%= link_to image_tag("limo.png", :alt => "rss feed"), lista_limo_path %>  
         </div>
         <div class="row-2">
-          <%= image_tag("4x4.png", :alt => "rss feed") %>
-          <%= image_tag("cabine_estendida.png", :alt => "rss feed") %>
-          <%= image_tag("van2.png", :alt => "rss feed") %>
+          <%= link_to image_tag("4x4.png", :alt => "rss feed"), lista_pickups_path %>
+          <%= link_to image_tag("cabine_estendida.png", :alt => "rss feed"), lista_familia_path %>
+          <%= link_to image_tag("van2.png", :alt => "rss feed"), lista_van_path %>
         </div> 
         <div class="row-3">
-          <%= link_to image_tag("van.png", :alt => "rss feed"), lista_van_path %>
-          <%= image_tag("frete.png", :alt => "rss feed") %>
+          <%= link_to image_tag("van.png", :alt => "rss feed"), lista_frete_frigo_path %>
+          <%= link_to image_tag("frete.png", :alt => "rss feed"), lista_frete_comun_path %>
           <%= image_tag("carro.png", :alt => "rss feed") %>
         </div>           
       </div>

@@ -1,9 +1,9 @@
 <ul role="tablist" class="nav nav-tabs">
   <li><a data-toggle="tab" href="#carros">Carros</a></li>
-  <li class="active"><a data-toggle="tab" href="#motos">Motos</a></li>
+  <li><a data-toggle="tab" href="#motos">Motos</a></li>
   <li><a data-toggle="tab" href="#vans">Vans</a></li>
   <li><a data-toggle="tab" href="#pickups">Pickups</a></li>
-  <li><a data-toggle="tab" href="#limos">Limozines</a></li>
+  <li class="active"><a data-toggle="tab" href="#limos">Limozines</a></li>
   <li><a data-toggle="tab" href="#familia">Familia</a></li>
   <li><a data-toggle="tab" href="#frete_c">Frete Comum</a></li>
   <li><a data-toggle="tab" href="#frete_f">Frete Frigorifico</a></li>
@@ -36,7 +36,7 @@
     </div>
 
 <!-- Filtrar por motos -->
-    <div id="motos" class="tab-pane fade in active">
+    <div id="motos" class="tab-pane fade">
       <% @motos.each do |moto| %>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
@@ -104,7 +104,7 @@
       <% end %>
     </div>
 
-    <div id="limos" class="tab-pane fade">
+    <div id="limos" class="tab-pane fade in active">
       <% @limos.each do |limo| %>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">

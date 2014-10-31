@@ -49,7 +49,7 @@ class LocadorasController < ApplicationController
 
     respond_to do |format|
       if @locadora.save
-        format.html { redirect_to @locadora, notice: 'Locadora salva com sucesso.' }
+        format.html { redirect_to @locadora }
         format.json { render :show, status: :created, location: @locadora }
       else
         format.html { render :new }

@@ -26,21 +26,11 @@
         <% end %>
       </p>   
       <ul class="nav navbar-nav">        
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Veiculos<span class="caret"></span></a>
-              <ul role="menu" class="dropdown-menu">          
-                <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Por Categoria</li>
-                <li><a href="#">Carros</a></li>
-                <li><a href="#">Motos</a></li>
-                <li><a href="#">4x4</a></li>              
-              </ul>
-          </li>
 
-        <li><%= link_to "Alugar Veiculos", lista_carros_path %></li> 
+        <li><%= link_to "Alugar Veiculos", lista_veiculos_path %></li> 
          
         <% if current_user && current_user.is_admin? %>  
+          <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
           <li><%= link_to "Locadoras",    locadoras_path %></li>
           <li><%= link_to "Clientes",    clientes_path %></li>
           <li><%= link_to "Categorias",    categorias_path %></li>  
@@ -49,6 +39,7 @@
         <% end %>
         
         <% if current_user && current_user.is_locadora? %>  
+          <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
           <li><%= link_to "Garagens",    garagens_path %></li>
           <li><%= link_to "Opcionais",    opcionais_path %></li>
         <% end %>

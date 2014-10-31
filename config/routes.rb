@@ -15,10 +15,16 @@ Rails.application.routes.draw do
 
   match '/cadastro_perfil_cliente', to: 'clientes#cadastro_perfil_cliente', via: [:get, :post]
 
+  match '/lista_veiculos', to: 'static_pages#lista_veiculos', via: 'get', as: 'lista_veiculos'
+
   match '/lista_carros', to: 'static_pages#lista_carros', via: 'get', as: 'lista_carros'
   match '/lista_motos', to: 'static_pages#lista_motos', via: 'get', as: 'lista_motos'
-  match '/lista_4x4', to: 'static_pages#lista_4x4', via: 'get', as: 'lista_4x4'
+  match '/lista_pickups', to: 'static_pages#lista_pickups', via: 'get', as: 'lista_pickups'
   match '/lista_van', to: 'static_pages#lista_van', via: 'get', as: 'lista_van'
+  match '/lista_limo', to: 'static_pages#lista_limo', via: 'get', as: 'lista_limo'
+  match '/lista_familia', to: 'static_pages#lista_familia', via: 'get', as: 'lista_familia'
+  match '/lista_frete_comun', to: 'static_pages#lista_frete_comun', via: 'get', as: 'lista_frete_comun'
+  match '/lista_frete_frigo', to: 'static_pages#lista_frete_frigo', via: 'get', as: 'lista_frete_frigo'
 
   #Dashboard
   match '/admin_index', to: 'dashboard#admin_index', via: 'get'

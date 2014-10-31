@@ -43,7 +43,7 @@ class ClientesController < ApplicationController
     
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to @cliente, notice: 'Cliente salvo com sucesso.' }
+        format.html { redirect_to @cliente }
         format.json { render :show, status: :created, location: @cliente }
       else
         format.html { render :new }
