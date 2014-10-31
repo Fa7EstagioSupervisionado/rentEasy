@@ -1,46 +1,82 @@
 <ul class="nav nav-tabs" role="tablist">
-  <li class="active"><a href="#">Ferramentas</a></li>
-  <li><a href="#">Veiculos Alugados</a></li>
+	<li class="active">
+		<a href="#">Ferramentas</a>
+	</li>
+	<li>
+		<a href="#">Veiculos Alugados</a>
+	</li>
 </ul>
 <br>
 <div class="row">
-  <div class="col-sm-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Consulta de Veiculos</h3>
-      </div>
-      <div class="panel-body">
-       Campo 1: <input>
-       <br><br>
-       Campo 2: <input>
-       <br><br>
-       Campo 3: <input>
-       <br><br>
-       <button, class="btn btn-primary"> Consultar</button>
-      </div>
-    </div><!-- final -->
+	<div class="col-sm-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Consulta de Veiculos</h3>
+			</div>
+			<div class="panel-body">
+				Campo 1:
+				<input>
+				<br>
+				<br>
+				Campo 2:
+				<input>
+				<br>
+				<br>
+				Campo 3:
+				<input>
+				<br>
+				<br>
+				<button, class="btn btn-primary">
+					Consultar</button>
+			</div>
+		</div><!-- final -->
 
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title">Outros dados</h3>
-      </div>
-      <div class="panel-body">
-        <p>Dados </p>
-        <p>Datas </p>
-      </div>
-    </div>
-  </div><!-- /.col-sm-4 -->
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Outros dados</h3>
+			</div>
+			<div class="panel-body">
+				<p>
+					Dados
+				</p>
+				<p>
+					Datas
+				</p>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
 
-  <div class="col-sm-8">  
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title">Alugueis</h3>
-      </div>
-      <div class="panel-body">
-        <p>Dados do veiculo alugado</p>
-        <p>Datas de terminio do aluguel</p>
-        <p>Dados de pagamento do aluguel</p>
-      </div>
-    </div>
-  </div><!-- /.col-sm-4 -->      
+	<div class="col-sm-8">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Alugueis</h3>
+			</div>
+			<div class="panel-body">
+				<tbody>
+					<% @alugueis.each do |aluguel| %>
+					<div class="col-sm-6 col-md-5">
+						<div class="thumbnail">
+							<%= image_tag aluguel.veiculo.foto.url(:medium) %>
+							<div class="caption">
+
+								<strong>Modelo: </strong><%= aluguel.veiculo.modelo %>
+								<br>
+								<strong>Locadora: </strong><%= aluguel.veiculo.locadora.nome %>
+								<br>
+								<strong>Dt. Recebimento: </strong><%= aluguel.dt_recebimento.strftime("%d/%m/%Y") %>
+								<br>
+								<strong>Dt. Entrega: </strong><%= aluguel.dt_devolucao.strftime("%d/%m/%Y") %>
+								<br>
+								<strong>Valor total: </strong>R$ <%= aluguel.preco_total %>
+								<br>
+								<br>
+								<p>
+									
+							</div>
+						</div>
+					</div>
+					<% end %>
+			</div>
+		</div>
+	</div><!-- /.col-sm-4 -->
 </div>
