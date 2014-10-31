@@ -25,7 +25,11 @@
 				<br>
 				<%= f.input :cpf, label: 'CPF', input_html: {class: 'form-control'} %>
 				<br>
-				<%= f.input :dt_nascimento, label: 'Dt. Nascimento', input_html: {class: 'form-control'} %>
+				<div class="input string" style="margin-bottom: 10px;">
+					<%= f.label :dt_nascimento, "Dt. Nascimento"%>
+					<br>
+					<%= f.date_select :dt_nascimento, order: [:day, :month, :year], input_html: {class: 'form-control'}%>
+				</div>
 				<br>
 				<%= f.label :Sexo %>
 				<br>
