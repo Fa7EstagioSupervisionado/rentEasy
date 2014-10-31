@@ -27,7 +27,9 @@
       </p>   
       <ul class="nav navbar-nav">        
 
-        <li><%= link_to "Alugar Veiculos", lista_veiculos_path %></li> 
+        <% if current_user && current_user.is_cliente? %>  
+          <li><%= link_to "Alugar Veiculos", lista_veiculos_path %></li> 
+        <% end %>
          
         <% if current_user && current_user.is_admin? %>  
           <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
@@ -39,7 +41,7 @@
         <% end %>
         
         <% if current_user && current_user.is_locadora? %>  
-          <li><%= link_to "Todos Veiculos",    veiculos_path %></li>
+          <li><%= link_to "Cadastrar Veiculos",  new_veiculo_path %></li>
           <li><%= link_to "Garagens",    garagens_path %></li>
           <li><%= link_to "Opcionais",    opcionais_path(:locadora_id => current_user.locadora_id) %></li>
         <% end %>
