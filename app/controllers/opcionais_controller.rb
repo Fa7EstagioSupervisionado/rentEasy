@@ -64,9 +64,10 @@ class OpcionaisController < ApplicationController
   # DELETE /opcionais/1
   # DELETE /opcionais/1.json
   def destroy
+    
     @opcional.destroy
     respond_to do |format|
-      format.html { redirect_to opcionais_url, notice: 'Opcional was successfully destroyed.' }
+      format.html { redirect_to opcionais_url(:locadora_id => @opcional.locadora.id), notice: 'Opcional was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -83,6 +84,6 @@ class OpcionaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opcional_params
-      params.require(:opcional).permit(:descricao, :nome, :valor, :veiculo_id)
+      params.require(:opcional).permit(:descricao, :nome, :valor, :locadora_id,:foto)
     end
 end

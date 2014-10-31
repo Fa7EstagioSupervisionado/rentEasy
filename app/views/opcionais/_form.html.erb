@@ -16,18 +16,12 @@
     <%= f.input :descricao, label: 'Descricao', input_html: {class: 'form-control'} %><br>
     <%= f.input :nome, label: 'Nome', input_html: {class: 'form-control'} %><br>
     <%= f.input :valor, label: 'Valor', input_html: {class: 'form-control'} %><br>
-    
-    <!-- Veiculo não deve ser relacionado na criação de um opcional, somente na associação -->
-    <!-- <div class="field">
-      <%= f.label :veiculo_id %><br>
-      <%= f.collection_select(:veiculo_id, @veiculos, :id, :modelo, :prompt => true, :class => 'form-control' ) %>
-    </div> -->
-
-    
+    <%= f.file_field :foto %>
+    <%= f.hidden_field :locadora_id, :value => current_user.locadora_id%>
   </div>
   <div class="actions">
     <%= f.button :submit,"Salvar", class: 'btn btn-success' %>
-    <%= link_to 'Voltar', opcionais_path, class: "btn btn-default"  %>
+    <%= link_to 'Voltar', opcionais_path(:locadora_id => current_user.locadora_id), class: "btn btn-default"  %>
   </div>
  
  <br>

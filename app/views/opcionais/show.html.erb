@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
+<br>
 
+<div class="row">
+  <div class="col-sm-6 col-md-8">
+    <div class="thumbnail">
+      <%= image_tag @opcional.foto.url(:medium) %>   
+    </div> 
+  </div>  
+</div>
 
 <p>
   <strong>Nome:</strong>
@@ -17,3 +25,4 @@
 </p>
 
 <%= link_to 'Editar', edit_opcional_path(@opcional), class: "btn btn-default btn-sm" %>
+<%= link_to 'Voltar', opcionais_path(:locadora_id => current_user.locadora_id), class: "btn btn-default"  %>
