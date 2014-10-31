@@ -37,7 +37,7 @@ class OpcionaisController < ApplicationController
 
     respond_to do |format|
       if @opcional.save
-        format.html { redirect_to @opcional, notice: 'Opcional was successfully created.' }
+        format.html { redirect_to @opcional, notice: 'Opcional criado com sucesso.' }
         format.json { render :show, status: :created, location: @opcional }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class OpcionaisController < ApplicationController
     prepara_form
     respond_to do |format|
       if @opcional.update(opcional_params)
-        format.html { redirect_to @opcional, notice: 'Opcional was successfully updated.' }
+        format.html { redirect_to @opcional, notice: 'Opcional editado com sucesso.' }
         format.json { render :show, status: :ok, location: @opcional }
       else
         format.html { render :edit }
