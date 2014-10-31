@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
 
 	def cliente_index
 		@clientes = Cliente.order :nome
+		@alugueis = Aluguel.order :id
 	end
 
 	def locadora_index
@@ -20,4 +21,8 @@ class DashboardController < ApplicationController
    		@veiculos = Veiculo.order :modelo
     	@locadoras = Locadora.order :nome
 	end
+	
+
+	
+	
 end
