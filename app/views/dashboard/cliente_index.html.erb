@@ -54,9 +54,11 @@
 			<div class="panel-body">
 				<tbody>
 					<% @alugueis.each do |aluguel| %>
+					<% if aluguel.cliente_id == current_user.cliente_id %>
 					<div class="col-sm-6 col-md-5">
 						<div class="thumbnail">
 							<%= image_tag aluguel.veiculo.foto.url(:medium) %>
+
 							<div class="caption">
 
 								<strong>Modelo: </strong><%= aluguel.veiculo.modelo %>
@@ -71,10 +73,11 @@
 								<br>
 								<br>
 								<p>
-									
+
 							</div>
 						</div>
 					</div>
+					<% end %>
 					<% end %>
 			</div>
 		</div>
