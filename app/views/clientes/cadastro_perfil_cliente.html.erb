@@ -35,8 +35,6 @@
 				<br>
 				<%= f.select(:sexo, options_for_select([['Masculino'], ['Feminino'],['Não Informado']]), {}, {class: "form-control"}) %>
 				<br>
-				<%= f.input :email, label: 'Email', input_html: {class: 'form-control'} %>
-				<br>
 				<%= f.input :telefone,label: 'Telefone', input_html: {class: 'form-control',:id => 'phone'} %>
 				<br>
 				<%= f.input :nr_habilitacao, label: 'Habilitação', input_html: {class: 'form-control'} %>

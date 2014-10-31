@@ -60,9 +60,9 @@ Veiculo.create(placa: 'HXO-4323', marca: 'HYUNDAI', ano: 2001, modelo: 'HILUX', 
 #Limouzines
 Veiculo.create(placa: 'HXO-4323', marca: 'GM', ano: 2001, modelo: 'HUMMER LIMOUSINE', cor: 'grafite', valor_diaria: 2500, alugado: false, categoria_id: 5, garagem_id: 1, locadora_id: 3, foto_file_name: "hummer.jpg", foto_content_type: "image/jpeg")
 #Familia
-Veiculo.create(placa: 'HXO-4323', marca: 'HONDA', ano: 2001, modelo: 'DECISION', cor: 'grafite', valor_diaria: 500, alugado: false, categoria_id: 6, garagem_id: 1, locadora_id: 2, foto_file_name: "decision.jpeg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HXO-4323', marca: 'HONDA', ano: 2001, modelo: 'DECISION', cor: 'grafite', valor_diaria: 500, alugado: false, categoria_id: 6, garagem_id: 1, locadora_id: 4, foto_file_name: "decision.jpeg", foto_content_type: "image/jpeg")
 #Frete Comum
-Veiculo.create(placa: 'HXO-4323', marca: 'KIA', ano: 2001, modelo: 'BONGO', cor: 'grafite', valor_diaria: 500, alugado: false, categoria_id: 7, garagem_id: 1, locadora_id: 2, foto_file_name: "bongo.jpg", foto_content_type: "image/jpeg")
+Veiculo.create(placa: 'HXO-4323', marca: 'KIA', ano: 2001, modelo: 'BONGO', cor: 'grafite', valor_diaria: 500, alugado: false, categoria_id: 7, garagem_id: 1, locadora_id: 4, foto_file_name: "bongo.jpg", foto_content_type: "image/jpeg")
 #Frete Frigorifico
 Veiculo.create(placa: 'HXO-4323', marca: 'HYUNDAI', ano: 2001, modelo: 'HD78', cor: 'grafite', valor_diaria: 500, alugado: false, categoria_id: 8, garagem_id: 1, locadora_id: 2, foto_file_name: "hd_78.jpg", foto_content_type: "image/jpeg")
 Veiculo.create(placa: 'HXO-3399', marca: 'HONDA', ano: 2005, modelo: 'XL', cor: 'amarela', valor_diaria: 100, alugado: false, categoria_id: 2, garagem_id: 1, locadora_id: 1, foto_file_name: "honda_xl.jpg", foto_content_type: "image/jpeg")

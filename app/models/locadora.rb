@@ -5,5 +5,5 @@ class Locadora < ActiveRecord::Base
 	
 	validates_associated :endereco
 
-	validates_presence_of :cnpj, :nome, :responsavel, :email, :telefone
+	validates_presence_of :cnpj, :nome, :responsavel, :telefone
 end

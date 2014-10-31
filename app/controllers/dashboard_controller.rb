@@ -13,12 +13,13 @@ class DashboardController < ApplicationController
 	def locadora_index
 		@veiculos = Veiculo.order :modelo
 		@locadoras = Locadora.order :nome
+		@garagens = Garagem.order :nome
 	end
 
 	def admin_index
 		@clientes = Cliente.order :nome
-    @veiculos = Veiculo.order :modelo
-    @locadoras = Locadora.order :nome
+   		@veiculos = Veiculo.order :modelo
+    	@locadoras = Locadora.order :nome
 	end
 	
 

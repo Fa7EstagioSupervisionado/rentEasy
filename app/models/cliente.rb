@@ -5,5 +5,5 @@ class Cliente < ActiveRecord::Base
 	
 	validates_associated :endereco
 
-	validates_presence_of :nome, :cpf, :dt_nascimento, :sexo, :email, :telefone, :nr_habilitacao
+	validates_presence_of :nome, :cpf, :dt_nascimento, :sexo, :telefone, :nr_habilitacao
 end

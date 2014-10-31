@@ -20,10 +20,7 @@
           <%= f.input :cor, label: 'Cor', input_html: {class: 'form-control'} %><br>
           <%= f.input :valor_diaria, label: 'Valor Diaria', input_html: {class: 'form-control'} %><br>
 
-          <div class="field">
-            <%= f.label :locadora_id %><br>
-            <%= f.collection_select(:locadora_id, @locadoras, :id, :nome, :prompt => true, :class => 'form-control' ) %>
-          </div>
+          <%= f.hidden_field :locadora_id, :value => current_user.locadora.id%>
 
           <div class="field">
             <%= f.label :garagem_id %><br>
@@ -44,7 +41,6 @@
         </div>
         <div class="actions">
           <%= f.button :submit,"Salvar", class: 'btn btn-success' %>
-          <%= link_to 'Voltar', veiculos_path, class: "btn btn-default"  %>
         </div>
        
        <br>
